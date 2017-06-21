@@ -1,4 +1,4 @@
-package com.main.webapplication.dto;
+package com.main.webapplication.dto.user;
 
 
 public class UserRegisterRequestDto {

@@ -3,9 +3,9 @@ package com.main.webapplication.exception;
 
 import com.main.webapplication.error.UserError;
 
-public class UserAlreadyExistsException extends RestException {
+public class AuthenticationException extends RestException {
 
-    public UserAlreadyExistsException(UserError userError) {
+    public AuthenticationException(UserError userError) {
         super(userError.getDescription());
     }
 }

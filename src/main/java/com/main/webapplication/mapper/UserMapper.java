@@ -1,14 +1,16 @@
 package com.main.webapplication.mapper;
 
-import com.main.webapplication.dto.UserRegisterRequestDto;
-import com.main.webapplication.dto.UserRegisterResponseDto;
+import com.main.webapplication.dto.user.UserLogInRequestDto;
+import com.main.webapplication.dto.user.UserLogInResponsetDto;
+import com.main.webapplication.dto.user.UserRegisterRequestDto;
+import com.main.webapplication.dto.user.UserRegisterResponseDto;
 import com.main.webapplication.entity.UserEntity;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
 
-    public UserEntity convertUserRegisterRequestDtoToUserEntity(UserRegisterRequestDto userRegisterRequestDto) {
+    public UserEntity toUserEntity(UserRegisterRequestDto userRegisterRequestDto) {
         if (userRegisterRequestDto == null) {
             return null;
         }
@@ -23,7 +25,7 @@ public class UserMapper {
         return userEntity;
     }
 
-    public UserRegisterResponseDto convertUserEntityToUserRegisterResponseDto(UserEntity userEntity) {
+    public UserRegisterResponseDto toUserRegisterResponseDto(UserEntity userEntity) {
         if (userEntity == null) {
             return null;
         }
@@ -37,6 +39,16 @@ public class UserMapper {
         userRegisterResponseDto.setEmail(userEntity.getEmail());
         userRegisterResponseDto.setPhoneNumber(userEntity.getPhoneNumber());
         return userRegisterResponseDto;
+    }
+
+    public UserLogInResponsetDto toUserLogInResponseDto(UserLogInRequestDto userLogInRequestDto, String authToken) {
+        if (userLogInRequestDto == null) {
+            return null;
+        }
+
+        UserLogInResponsetDto userLogInResponsetDto = new UserLogInResponsetDto();
+        userLogInResponsetDto.setAuthToken(authToken);
+        return userLogInResponsetDto;
     }
 
 }

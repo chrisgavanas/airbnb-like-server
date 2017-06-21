@@ -1,8 +1,12 @@
 package com.main.webapplication.rest;
 
 
-import com.main.webapplication.dto.UserRegisterRequestDto;
-import com.main.webapplication.dto.UserRegisterResponseDto;
+import com.main.webapplication.dto.user.UserLogInRequestDto;
+import com.main.webapplication.dto.user.UserLogInResponsetDto;
+import com.main.webapplication.dto.user.UserRegisterRequestDto;
+import com.main.webapplication.dto.user.UserRegisterResponseDto;
+import com.main.webapplication.exception.AuthenticationException;
+import com.main.webapplication.exception.RestException;
 import com.main.webapplication.exception.UserAlreadyExistsException;
 import com.main.webapplication.service.UserServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +25,28 @@ public class UserApiImpl implements UserApi {
     private UserServiceApi userServiceApi;
 
     @Override
-    public UserRegisterResponseDto register(@RequestBody UserRegisterRequestDto userRegisterRequestDto) throws Exception {
+    public UserRegisterResponseDto register(@RequestBody UserRegisterRequestDto userRegisterRequestDto) throws RestException {
         return userServiceApi.register(userRegisterRequestDto);
     }
 
+    @Override
+    public UserLogInResponsetDto login(@RequestBody UserLogInRequestDto userLogInRequestDto) throws RestException {
+        return userServiceApi.login(userLogInRequestDto);
+    }
+
     @ExceptionHandler({UserAlreadyExistsException.class})
-    private void conflict(Exception e, HttpServletResponse response) throws IOException {
+    private void conflict(UserAlreadyExistsException e, HttpServletResponse response) throws IOException {
         response.sendError(HttpStatus.CONFLICT.value());
+    }
+
+    @ExceptionHandler({AuthenticationException.class})
+    private void authentication(AuthenticationException e, HttpServletResponse response) throws IOException {
+        response.sendError(HttpStatus.UNAUTHORIZED.value());
+    }
+
+    @ExceptionHandler({RestException.class})
+    private void generic(RestException e, HttpServletResponse response) throws IOException {
+        response.sendError(HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
 
 }
