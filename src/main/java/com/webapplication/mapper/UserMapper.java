@@ -1,6 +1,5 @@
 package com.webapplication.mapper;
 
-import com.webapplication.dto.user.UserLogInRequestDto;
 import com.webapplication.dto.user.UserLogInResponsetDto;
 import com.webapplication.dto.user.UserRegisterRequestDto;
 import com.webapplication.dto.user.UserRegisterResponseDto;
@@ -12,18 +11,19 @@ import java.util.UUID;
 @Component
 public class UserMapper {
 
-    public UserEntity toUserEntity(UserRegisterRequestDto userRegisterRequestDto) {
+    public UserEntity toUserEntity(UserRegisterRequestDto userRegisterRequestDto, String encodedSalt, String encodedPassword) {
         if (userRegisterRequestDto == null) {
             return null;
         }
 
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(userRegisterRequestDto.getUsername());
-        userEntity.setPassword(userRegisterRequestDto.getPassword());
+        userEntity.setPassword(encodedPassword);
         userEntity.setName(userRegisterRequestDto.getName());
         userEntity.setSurname(userRegisterRequestDto.getSurname());
         userEntity.setEmail(userRegisterRequestDto.getEmail());
         userEntity.setPhoneNumber(userRegisterRequestDto.getPhoneNumber());
+        userEntity.setSalt(encodedSalt);
         return userEntity;
     }
 
@@ -43,12 +43,9 @@ public class UserMapper {
         return userRegisterResponseDto;
     }
 
-    public UserLogInResponsetDto toUserLogInResponseDto(UserLogInRequestDto userLogInRequestDto, UUID authToken) {
-        if (userLogInRequestDto == null) {
-            return null;
-        }
-
+    public UserLogInResponsetDto toUserLogInResponseDto(String username, UUID authToken) {
         UserLogInResponsetDto userLogInResponsetDto = new UserLogInResponsetDto();
+        userLogInResponsetDto.setUsername(username);
         userLogInResponsetDto.setAuthToken(authToken);
         return userLogInResponsetDto;
     }

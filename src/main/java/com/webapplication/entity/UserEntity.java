@@ -33,6 +33,9 @@ public class UserEntity {
     @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
 
+    @Column(name = "SALT")
+    private String salt;
+
     public Integer getUserId() {
         return userId;
     }
@@ -87,5 +90,13 @@ public class UserEntity {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }

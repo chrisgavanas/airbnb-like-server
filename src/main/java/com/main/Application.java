@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EntityScan("${entityPath}")
-@EnableJpaRepositories("com.webapplication.dao")
-@ComponentScan("com.webapplication")
+@EnableJpaRepositories("${repositoryPath}")
+@ComponentScan("${componentScanPath}")
 @ImportResource("${configurationFileClassPath}")
 public class Application {
     public static void main(String[] args) {

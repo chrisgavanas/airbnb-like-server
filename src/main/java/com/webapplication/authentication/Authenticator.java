@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.time.Clock;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -18,7 +18,7 @@ public class Authenticator {
 
     private final static int SESSION_TIME_OUT = 1000 * 60 * 30;
 
-//    public final static int SESSION_TIME_OUT_MINUTES = SESSION_TIME_OUT / (1000 * 60);
+    public final static int SESSION_TIME_OUT_MINUTES = SESSION_TIME_OUT / (1000 * 60);
 
     @Autowired
     private Clock clock;
@@ -36,7 +36,7 @@ public class Authenticator {
 
     @Scheduled(fixedDelay = SESSION_TIME_OUT)
     private void cleanUpSessions() {
-        sessions.entrySet().removeIf(session -> session.getValue().getDate().isBefore(LocalDate.now(clock)));
+        sessions.entrySet().removeIf(session -> session.getValue().getDate().isBefore(LocalDateTime.now(clock)));
     }
 
 }

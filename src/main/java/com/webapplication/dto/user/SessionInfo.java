@@ -1,14 +1,14 @@
 package com.webapplication.dto.user;
 
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class SessionInfo {
 
     private final Integer userId;
-    private LocalDate date;
+    private LocalDateTime date;
 
-    public SessionInfo(Integer userId, LocalDate date) {
+    public SessionInfo(Integer userId, LocalDateTime date) {
         this.userId = userId;
         this.date = date;
     }
@@ -17,11 +17,11 @@ public class SessionInfo {
         return userId;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

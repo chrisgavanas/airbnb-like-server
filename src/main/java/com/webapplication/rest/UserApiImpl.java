@@ -6,6 +6,7 @@ import com.webapplication.dto.user.UserLogInResponsetDto;
 import com.webapplication.dto.user.UserRegisterRequestDto;
 import com.webapplication.dto.user.UserRegisterResponseDto;
 import com.webapplication.exception.AuthenticationException;
+import com.webapplication.exception.ConfigurationException;
 import com.webapplication.exception.RestException;
 import com.webapplication.exception.UserAlreadyExistsException;
 import com.webapplication.service.UserServiceApi;
@@ -34,7 +35,7 @@ public class UserApiImpl implements UserApi {
         return userServiceApi.login(userLogInRequestDto);
     }
 
-    @ExceptionHandler({UserAlreadyExistsException.class})
+    @ExceptionHandler({UserAlreadyExistsException.class, ConfigurationException.class})
     private void conflict(UserAlreadyExistsException e, HttpServletResponse response) throws IOException {
         response.sendError(HttpStatus.CONFLICT.value());
     }
