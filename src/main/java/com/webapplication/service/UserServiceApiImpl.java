@@ -1,14 +1,12 @@
 package com.webapplication.service;
 
 import com.webapplication.authentication.Authenticator;
-import com.webapplication.dao.ResidenceRepository;
 import com.webapplication.dao.UserRepository;
 import com.webapplication.dto.user.SessionInfo;
 import com.webapplication.dto.user.UserLogInRequestDto;
-import com.webapplication.dto.user.UserLogInResponsetDto;
+import com.webapplication.dto.user.UserLogInResponseDto;
 import com.webapplication.dto.user.UserRegisterRequestDto;
 import com.webapplication.dto.user.UserRegisterResponseDto;
-import com.webapplication.entity.ResidenceEntity;
 import com.webapplication.entity.UserEntity;
 import com.webapplication.error.UserError;
 import com.webapplication.exception.AuthenticationException;
@@ -60,25 +58,8 @@ public class UserServiceApiImpl implements UserServiceApi {
     @Value("${iterations}")
     private Integer iterations;
 
-    @Autowired
-    private ResidenceRepository z;
-
     @Override
     public UserRegisterResponseDto register(UserRegisterRequestDto userRegisterRequestDto) throws RestException {
-        ResidenceEntity a = new ResidenceEntity();
-        a.setAddress("1");
-        a.setBathrooms(1);
-        a.setBedrooms(1);
-        a.setCapacity(1);
-        a.setDescription("a");
-        a.setGeoX(2.0);
-        a.setGeoY(2.1);
-        a.setLivingRoom(true);
-        a.setPrize(2);
-        a.setRules("11");
-        a.setSize(2.1);
-        a.setType("123");
-        z.save(a);
         UserEntity userEntity = userRepository.findUserEntityByUsername(userRegisterRequestDto.getUsername());
         if (userEntity != null) {
             throw new UserAlreadyExistsException(UserError.USERNAME_ALREADY_EXISTS);
@@ -99,7 +80,7 @@ public class UserServiceApiImpl implements UserServiceApi {
     }
 
     @Override
-    public UserLogInResponsetDto login(UserLogInRequestDto userLogInRequestDto) throws RestException {
+    public UserLogInResponseDto login(UserLogInRequestDto userLogInRequestDto) throws RestException {
         UserEntity user = userRepository.findUserEntityByUsername(userLogInRequestDto.getUsername());
         Optional.ofNullable(user).orElseThrow(() -> new AuthenticationException(UserError.INVALID_CREDENTIALS));
         Boolean validated = validatePassword(userLogInRequestDto.getPassword(), user.getPassword(), user.getSalt());
@@ -108,7 +89,7 @@ public class UserServiceApiImpl implements UserServiceApi {
         }
         SessionInfo sessionInfo = new SessionInfo(user.getUserId(), LocalDateTime.now(clock).plusMinutes(Authenticator.SESSION_TIME_OUT_MINUTES));
         UUID authToken = authenticator.createSession(sessionInfo);
-        return userMapper.toUserLogInResponseDto(userLogInRequestDto.getUsername(), authToken);
+        return userMapper.toUserLogInResponseDto(user, authToken);
     }
 
     private byte[] createSaltForUser() throws NoSuchAlgorithmException {

@@ -1,5 +1,7 @@
 package com.webapplication.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,6 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +63,13 @@ public class ResidenceEntity {
     @Column(name = "LIVING_ROOM")
     private Boolean livingRoom;
 
+    @JoinColumn(name = "PHOTO_ID")
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<PhotoEntity> photos = new ArrayList<>();
+
+    @JsonIgnore
+    @ManyToMany(mappedBy = "residences")
+    private List<UserEntity> users;
 
     public Integer getResidenceId() {
         return residenceId;
@@ -179,5 +189,13 @@ public class ResidenceEntity {
 
     public void setPhotos(List<PhotoEntity> photos) {
         this.photos = photos;
+    }
+
+    public List<UserEntity> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<UserEntity> users) {
+        this.users = users;
     }
 }

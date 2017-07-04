@@ -2,7 +2,7 @@ package com.webapplication.rest;
 
 
 import com.webapplication.dto.user.UserLogInRequestDto;
-import com.webapplication.dto.user.UserLogInResponsetDto;
+import com.webapplication.dto.user.UserLogInResponseDto;
 import com.webapplication.dto.user.UserRegisterRequestDto;
 import com.webapplication.dto.user.UserRegisterResponseDto;
 import com.webapplication.exception.AuthenticationException;
@@ -31,7 +31,7 @@ public class UserApiImpl implements UserApi {
     }
 
     @Override
-    public UserLogInResponsetDto login(@RequestBody UserLogInRequestDto userLogInRequestDto) throws RestException {
+    public UserLogInResponseDto login(@RequestBody UserLogInRequestDto userLogInRequestDto) throws RestException {
         return userServiceApi.login(userLogInRequestDto);
     }
 

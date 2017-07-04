@@ -1,13 +1,16 @@
 package com.webapplication.dto.user;
 
 
+import java.util.List;
 import java.util.UUID;
 
-public class UserLogInResponsetDto {
+public class UserLogInResponseDto {
 
     private String username;
 
     private UUID authToken;
+
+    private List<RoleDto> roleDtos;
 
     public String getUsername() {
         return username;
@@ -23,5 +26,13 @@ public class UserLogInResponsetDto {
 
     public void setAuthToken(UUID authToken) {
         this.authToken = authToken;
+    }
+
+    public List<RoleDto> getRoleDtos() {
+        return roleDtos;
+    }
+
+    public void setRoleDtos(List<RoleDto> roleDtos) {
+        this.roleDtos = roleDtos;
     }
 }

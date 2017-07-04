@@ -1,11 +1,19 @@
 package com.webapplication.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import java.util.List;
 
 @Entity(name = "User")
 public class UserEntity {
@@ -35,6 +43,24 @@ public class UserEntity {
 
     @Column(name = "SALT")
     private String salt;
+
+    @JsonIgnore
+    @JoinTable(name = "user_has_role", joinColumns = {
+            @JoinColumn(name = "USER_ID")
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "ROLE_ID")
+    })
+    @ManyToMany
+    private List<RoleEntity> roles;
+
+    @JoinTable(name = "user_has_residence", joinColumns = {
+            @JoinColumn(name = "USER_ID")
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "RESIDENCE_ID")
+    })
+    @JsonIgnore
+    @ManyToMany
+    private List<ResidenceEntity> residences;
 
     public Integer getUserId() {
         return userId;
@@ -98,5 +124,13 @@ public class UserEntity {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+
+    public List<RoleEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleEntity> roles) {
+        this.roles = roles;
     }
 }

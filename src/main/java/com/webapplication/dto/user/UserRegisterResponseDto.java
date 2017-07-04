@@ -1,6 +1,8 @@
 package com.webapplication.dto.user;
 
 
+import java.util.List;
+
 public class UserRegisterResponseDto {
 
     private Integer userId;
@@ -16,6 +18,8 @@ public class UserRegisterResponseDto {
     private String email;
 
     private String phoneNumber;
+
+    private List<RoleDto> roleDtos;
 
     public Integer getUserId() {
         return userId;
@@ -71,5 +75,13 @@ public class UserRegisterResponseDto {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public List<RoleDto> getRoleDtos() {
+        return roleDtos;
+    }
+
+    public void setRoleDtos(List<RoleDto> roleDtos) {
+        this.roleDtos = roleDtos;
     }
 }
