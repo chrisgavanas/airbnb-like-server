@@ -1,4 +1,4 @@
-package com.webapplication.rest;
+package com.webapplication.rest.user;
 
 import com.webapplication.dto.user.UserLogInRequestDto;
 import com.webapplication.dto.user.UserLogInResponseDto;

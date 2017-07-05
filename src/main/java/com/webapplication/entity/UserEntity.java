@@ -15,7 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.util.List;
 
-@Entity(name = "User")
+@Entity(name = "Users")
 public class UserEntity {
 
     @Id
@@ -45,7 +45,7 @@ public class UserEntity {
     private String salt;
 
     @JsonIgnore
-    @JoinTable(name = "user_has_role", joinColumns = {
+    @JoinTable(name = "Users_have_Roles", joinColumns = {
             @JoinColumn(name = "USER_ID")
     }, inverseJoinColumns = {
             @JoinColumn(name = "ROLE_ID")
@@ -53,7 +53,7 @@ public class UserEntity {
     @ManyToMany
     private List<RoleEntity> roles;
 
-    @JoinTable(name = "user_has_residence", joinColumns = {
+    @JoinTable(name = "Users_have_Residences", joinColumns = {
             @JoinColumn(name = "USER_ID")
     }, inverseJoinColumns = {
             @JoinColumn(name = "RESIDENCE_ID")
@@ -132,5 +132,13 @@ public class UserEntity {
 
     public void setRoles(List<RoleEntity> roles) {
         this.roles = roles;
+    }
+
+    public List<ResidenceEntity> getResidences() {
+        return residences;
+    }
+
+    public void setResidences(List<ResidenceEntity> residences) {
+        this.residences = residences;
     }
 }

@@ -94,6 +94,8 @@ CREATE TABLE IF NOT EXISTS `airbnb`.`Role` (
   UNIQUE INDEX `ROLE_ID_UNIQUE` (`ROLE_ID` ASC))
 ENGINE = InnoDB;
 
+INSERT INTO Role VALUES (1, 'HOST');
+INSERT INTO Role VALUES (2, 'TENANT');
 
 -- -----------------------------------------------------
 -- Table `airbnb`.`User_has_Role`

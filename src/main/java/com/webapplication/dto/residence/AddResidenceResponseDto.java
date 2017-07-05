@@ -1,77 +1,43 @@
-package com.webapplication.entity;
+package com.webapplication.dto.residence;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "Residences")
-public class ResidenceEntity {
+public class AddResidenceResponseDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "RESIDENCE_ID")
     private Integer residenceId;
 
-    @Column(name = "ADDRESS")
     private String address;
 
-    @Column(name = "GEO_X")
     private Double geoX;
 
-    @Column(name = "GEO_Y")
     private Double geoY;
 
-    @Column(name = "DATE_AVAILABLE")
-    private String datesAvailable = ";";
+    private String datesAvailable;
 
-    @Column(name = "CAPACITY")
     private Integer capacity;
 
-    @Column(name = "PRIZE")
     private Integer prize;
 
-    @Column(name = "TYPE")
     private String type;
 
-    @Column(name = "RULES")
     private String rules;
 
-    @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "BATHROOMS")
     private Integer bathrooms;
 
-    @Column(name = "SIZE")
     private Double size;
 
-    @Column(name = "BEDROOMS")
     private Integer bedrooms;
 
-    @Column(name = "LIVING_ROOM")
     private Boolean livingRoom;
 
-    @Column(name = "LOCATION")
     private String location;
 
-    @JoinColumn(name = "PHOTO_ID")
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<PhotoEntity> photos = new ArrayList<>();
+    private Integer userId;
 
-    @JsonIgnore
-    @ManyToMany(mappedBy = "residences")
-    private List<UserEntity> users;
+    private List<String> photoPaths;
 
     public Integer getResidenceId() {
         return residenceId;
@@ -193,19 +159,20 @@ public class ResidenceEntity {
         this.location = location;
     }
 
-    public List<PhotoEntity> getPhotos() {
-        return photos;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setPhotos(List<PhotoEntity> photos) {
-        this.photos = photos;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public List<UserEntity> getUsers() {
-        return users;
+    public List<String> getPhotoPaths() {
+        return photoPaths;
     }
 
-    public void setUsers(List<UserEntity> users) {
-        this.users = users;
+    public void setPhotoPaths(List<String> photoPaths) {
+        this.photoPaths = photoPaths;
     }
+
 }

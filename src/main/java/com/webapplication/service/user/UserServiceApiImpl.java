@@ -1,4 +1,4 @@
-package com.webapplication.service;
+package com.webapplication.service.user;
 
 import com.webapplication.authentication.Authenticator;
 import com.webapplication.dao.UserRepository;
