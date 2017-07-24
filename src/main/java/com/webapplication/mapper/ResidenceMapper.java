@@ -2,12 +2,18 @@ package com.webapplication.mapper;
 
 import com.webapplication.dao.UserRepository;
 import com.webapplication.dto.residence.AddResidenceRequestDto;
+import com.webapplication.dto.residence.AddResidenceResponseDto;
+import com.webapplication.entity.PhotoEntity;
 import com.webapplication.entity.ResidenceEntity;
 import com.webapplication.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class ResidenceMapper {
@@ -41,4 +47,30 @@ public class ResidenceMapper {
         return residenceEntity;
     }
 
+    public AddResidenceResponseDto toAddResidenceResponseDto(ResidenceEntity residenceEntity) {
+        if (residenceEntity == null) {
+            return null;
+        }
+
+        AddResidenceResponseDto addResidenceResponseDto = new AddResidenceResponseDto();
+        addResidenceResponseDto.setAddress(residenceEntity.getAddress());
+        addResidenceResponseDto.setBathrooms(residenceEntity.getBathrooms());
+        addResidenceResponseDto.setBedrooms(residenceEntity.getBedrooms());
+        addResidenceResponseDto.setCapacity(residenceEntity.getCapacity());
+        addResidenceResponseDto.setDatesAvailable(residenceEntity.getDatesAvailable());
+        addResidenceResponseDto.setGeoX(residenceEntity.getGeoX());
+        addResidenceResponseDto.setGeoY(residenceEntity.getGeoY());
+        addResidenceResponseDto.setDescription(residenceEntity.getDescription());
+        addResidenceResponseDto.setLivingRoom(residenceEntity.getLivingRoom());
+        addResidenceResponseDto.setLocation(residenceEntity.getLocation());
+        addResidenceResponseDto.setPrize(residenceEntity.getPrize());
+        addResidenceResponseDto.setResidenceId(residenceEntity.getResidenceId());
+        addResidenceResponseDto.setRules(residenceEntity.getRules());
+        addResidenceResponseDto.setType(residenceEntity.getType());
+        addResidenceResponseDto.setSize(residenceEntity.getSize());
+        addResidenceResponseDto.setUserId(residenceEntity.getUsers().get(0).getUserId());       // TODO needs to change
+        List<String> photos = Optional.ofNullable(residenceEntity.getPhotos().stream().map(PhotoEntity::getPath).collect(Collectors.toList())).orElse(new LinkedList<>());
+        addResidenceResponseDto.setPhotoPaths(photos);
+        return addResidenceResponseDto;
+    }
 }

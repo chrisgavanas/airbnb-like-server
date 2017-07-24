@@ -1,0 +1,109 @@
+{
+	"id": "d12a4e6c-e3d2-45f5-fb61-76b89efac89a",
+	"name": "AirBnbCollection",
+	"description": "",
+	"order": [
+		"3cfb5b07-688e-243e-1a48-f4985265d5bf",
+		"46f919d7-304c-60f4-ea1e-920fb6979758",
+		"55e6d854-2c13-399c-016d-aed134326c95"
+	],
+	"folders": [],
+	"timestamp": 1499277375561,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "3cfb5b07-688e-243e-1a48-f4985265d5bf",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/login",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "d12a4e6c-e3d2-45f5-fb61-76b89efac89a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/login",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1499277386913,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"username\" : \"chris\",\n\t\"password\" : \"123123\"\n}"
+		},
+		{
+			"id": "46f919d7-304c-60f4-ea1e-920fb6979758",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/register",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "d12a4e6c-e3d2-45f5-fb61-76b89efac89a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/register",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1499277394099,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"username\" : \"chris\",\n\t\"password\" : \"123123\",\n\t\"name\" : \"Xristos\", \n\t\"surname\" : \"Gavanas\",\n\t\"email\" : \"chrisgavanas@gmail.com\",\n\t\"phoneNumber\" : \"6980387129\",\n\t\"roleDtos\" : [\n\t\t\"HOST\",\n\t\t\"TENANT\"\n\t]\n}"
+		},
+		{
+			"id": "55e6d854-2c13-399c-016d-aed134326c95",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/residence",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "d12a4e6c-e3d2-45f5-fb61-76b89efac89a",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:8080/residence",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1499277397487,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"address\" : \"Andromahis\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"datesAvailable\" : \"1;2;\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"userId\" : 3\n}"
+		}
+	]
+}

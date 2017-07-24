@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import java.util.ArrayList;
@@ -65,8 +64,8 @@ public class ResidenceEntity {
     @Column(name = "LOCATION")
     private String location;
 
-    @JoinColumn(name = "PHOTO_ID")
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "residenceEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<PhotoEntity> photos = new ArrayList<>();
 
     @JsonIgnore

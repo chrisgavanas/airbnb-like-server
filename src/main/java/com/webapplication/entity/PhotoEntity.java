@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity(name = "Photos")
 public class PhotoEntity {
@@ -16,6 +18,10 @@ public class PhotoEntity {
 
     @Column(name = "PATH")
     private String path;
+
+    @ManyToOne
+    @JoinColumn(name = "Residences_RESIDENCE_ID")
+    private ResidenceEntity residenceEntity;
 
     public Integer getPhotoId() {
         return photoId;
@@ -31,5 +37,13 @@ public class PhotoEntity {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public ResidenceEntity getResidenceEntity() {
+        return residenceEntity;
+    }
+
+    public void setResidenceEntity(ResidenceEntity residenceEntity) {
+        this.residenceEntity = residenceEntity;
     }
 }

@@ -24,7 +24,7 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
     public AddResidenceResponseDto addResidence(AddResidenceRequestDto addResidenceRequestDto) throws RestException {
         ResidenceEntity residenceEntity = residenceMapper.toResidenceEntity(addResidenceRequestDto);
         residenceEntity = residenceRepository.save(residenceEntity);
-        return null;
+        return residenceMapper.toAddResidenceResponseDto(residenceEntity);
     }
 
 }
