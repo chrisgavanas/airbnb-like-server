@@ -1,17 +1,14 @@
 package com.webapplication.rest.residence;
 
 
-import com.webapplication.dto.residence.AddResidenceRequestDto;
-import com.webapplication.dto.residence.AddResidenceResponseDto;
-import com.webapplication.dto.residence.SearchResidenceDto;
+import com.webapplication.dto.residence.*;
+import com.webapplication.entity.CommentEntity;
 import com.webapplication.entity.ResidenceEntity;
 import com.webapplication.exception.RestException;
 import com.webapplication.service.residence.ResidenceServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -29,6 +26,21 @@ public class ResidenceApiImpl implements ResidenceApi {
     @Override
     public List<ResidenceEntity> searchResidence(@RequestBody SearchResidenceDto searchResidenceDto) throws  RestException {
         return residenceServiceApi.searchResidence(searchResidenceDto);
+    }
+
+    @Override
+    public ResidenceEntity searchResidenceById(SearchResidenceByIdDto searchResidenceByIdDto) throws RestException {
+        return residenceServiceApi.searchResidenceById(searchResidenceByIdDto);
+    }
+
+    @Override
+    public Iterable<ResidenceEntity> getAllResidence() throws RestException {
+        return residenceServiceApi.getAllResidences();
+    }
+
+    @Override
+    public void addComment(AddCommentToResidenceDto addCommentToResidenceDto) throws RestException {
+        residenceServiceApi.addComment(addCommentToResidenceDto);
     }
 
 }

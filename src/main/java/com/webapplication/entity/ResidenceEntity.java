@@ -2,15 +2,7 @@ package com.webapplication.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,6 +63,9 @@ public class ResidenceEntity {
     @JsonIgnore
     @ManyToMany(mappedBy = "residences")
     private List<UserEntity> users;
+
+    @OneToMany(mappedBy = "residenceEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<CommentEntity> comments = new ArrayList<>();
 
     public Integer getResidenceId() {
         return residenceId;
@@ -207,4 +202,14 @@ public class ResidenceEntity {
     public void setUsers(List<UserEntity> users) {
         this.users = users;
     }
+
+    public List<CommentEntity> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentEntity> comments) {
+        this.comments = comments;
+    }
+
+
 }

@@ -1,9 +1,8 @@
 package com.webapplication.service.residence;
 
 import com.webapplication.dao.ResidenceRepository;
-import com.webapplication.dto.residence.AddResidenceRequestDto;
-import com.webapplication.dto.residence.AddResidenceResponseDto;
-import com.webapplication.dto.residence.SearchResidenceDto;
+import com.webapplication.dto.residence.*;
+import com.webapplication.entity.CommentEntity;
 import com.webapplication.entity.ResidenceEntity;
 import com.webapplication.exception.RestException;
 import com.webapplication.mapper.ResidenceMapper;
@@ -36,6 +35,34 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
         Integer capacity = searchResidenceDto.getCapacity();
         String datesAvailable = searchResidenceDto.getDatesAvailable();
         return residenceRepository.findByLocationOrCapacityOrDatesAvailable(location,capacity,datesAvailable);
+    }
+
+    @Override
+    public ResidenceEntity searchResidenceById(SearchResidenceByIdDto searchResidenceByIdDto) throws RestException {
+        Integer residenceId = searchResidenceByIdDto.getResidenceId();
+        System.out.println(residenceId);
+        return residenceRepository.findOne(residenceId);
+    }
+
+    @Override
+    public Iterable<ResidenceEntity> getAllResidences() {
+        return residenceRepository.findAll();
+    }
+
+    @Override
+    public void addComment(AddCommentToResidenceDto addCommentToResidenceDto) {
+        Integer residenceId = addCommentToResidenceDto.getResidenceId();
+        String comment = addCommentToResidenceDto.getComment();
+        Integer grade = addCommentToResidenceDto.getGrade();
+        ResidenceEntity residenceEntity = residenceRepository.findOne(residenceId);
+
+        CommentEntity commentEntity = new CommentEntity();
+        commentEntity.setComment(comment);
+        commentEntity.setGrade(grade);
+
+        residenceEntity.getComments().add(commentEntity);
+        residenceRepository.save(residenceEntity);
+
     }
 
 }

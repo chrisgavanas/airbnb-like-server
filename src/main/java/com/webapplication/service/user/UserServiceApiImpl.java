@@ -2,11 +2,7 @@ package com.webapplication.service.user;
 
 import com.webapplication.authentication.Authenticator;
 import com.webapplication.dao.UserRepository;
-import com.webapplication.dto.user.SessionInfo;
-import com.webapplication.dto.user.UserLogInRequestDto;
-import com.webapplication.dto.user.UserLogInResponseDto;
-import com.webapplication.dto.user.UserRegisterRequestDto;
-import com.webapplication.dto.user.UserRegisterResponseDto;
+import com.webapplication.dto.user.*;
 import com.webapplication.entity.UserEntity;
 import com.webapplication.error.UserError;
 import com.webapplication.exception.AuthenticationException;
