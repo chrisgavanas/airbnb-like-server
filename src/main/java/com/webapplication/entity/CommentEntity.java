@@ -1,5 +1,7 @@
 package com.webapplication.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 /**
@@ -20,7 +22,8 @@ public class CommentEntity {
     private Integer grade;
 
     @ManyToOne
-    @JoinColumn(name = "Residences_RESIDENCE_ID")
+    @JoinColumn(name = "RESIDENCE_ID")
+    @JsonBackReference
     private ResidenceEntity residenceEntity;
 
     public Integer getCommentId() {

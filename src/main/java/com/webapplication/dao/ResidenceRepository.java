@@ -8,4 +8,5 @@ import java.util.List;
 public interface ResidenceRepository extends CrudRepository<ResidenceEntity, Integer> {
 
     List<ResidenceEntity> findByLocationOrCapacityOrDatesAvailable(String location, Integer capacity, String datesAvailable);
+
 }

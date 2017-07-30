@@ -5,7 +5,7 @@ package com.webapplication.dto.residence;
  */
 public class SearchResidenceByIdDto {
 
-    public Integer residenceId;
+    private Integer residenceId;
 
     public Integer getResidenceId() {
         return residenceId;

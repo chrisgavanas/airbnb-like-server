@@ -2,7 +2,7 @@ package com.webapplication.rest.residence;
 
 
 import com.webapplication.dto.residence.*;
-import com.webapplication.entity.CommentEntity;
+import com.webapplication.dto.user.UserUtilsDto;
 import com.webapplication.entity.ResidenceEntity;
 import com.webapplication.exception.RestException;
 import com.webapplication.service.residence.ResidenceServiceApi;
@@ -29,18 +29,34 @@ public class ResidenceApiImpl implements ResidenceApi {
     }
 
     @Override
-    public ResidenceEntity searchResidenceById(SearchResidenceByIdDto searchResidenceByIdDto) throws RestException {
+    public ResidenceEntity searchResidenceById(@RequestBody SearchResidenceByIdDto searchResidenceByIdDto) throws RestException {
         return residenceServiceApi.searchResidenceById(searchResidenceByIdDto);
     }
 
     @Override
-    public Iterable<ResidenceEntity> getAllResidence() throws RestException {
+    public List<ResidenceEntity> getAllResidence() throws RestException {
         return residenceServiceApi.getAllResidences();
     }
 
     @Override
-    public void addComment(AddCommentToResidenceDto addCommentToResidenceDto) throws RestException {
-        residenceServiceApi.addComment(addCommentToResidenceDto);
+    public ResidenceEntity addComment(@RequestBody AddCommentToResidenceDto addCommentToResidenceDto) throws RestException {
+        return residenceServiceApi.addComment(addCommentToResidenceDto);
     }
+
+    @Override
+    public ResidenceEntity updateResidence(@RequestBody ResidenceEntity residenceEntity) throws RestException{
+        return residenceServiceApi.updateResidence(residenceEntity);
+    }
+
+    @Override
+    public void deleteResidence(@RequestBody  ResidenceEntity residenceEntity) throws RestException {
+        residenceServiceApi.deleteResidence(residenceEntity);
+    }
+
+    @Override
+    public List<ResidenceEntity> getResidencesBasedOnUserSearchedLocations(@RequestBody UserUtilsDto userUtilsDto) throws RestException {
+        return residenceServiceApi.getResidencesBasedOnUserSearchedLocations(userUtilsDto);
+    }
+
 
 }

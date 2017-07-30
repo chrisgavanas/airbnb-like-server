@@ -2,7 +2,7 @@ package com.webapplication.service.residence;
 
 
 import com.webapplication.dto.residence.*;
-import com.webapplication.entity.CommentEntity;
+import com.webapplication.dto.user.UserUtilsDto;
 import com.webapplication.entity.ResidenceEntity;
 import com.webapplication.exception.RestException;
 
@@ -16,7 +16,13 @@ public interface ResidenceServiceApi {
 
     ResidenceEntity searchResidenceById(SearchResidenceByIdDto searchResidenceByIdDto) throws RestException;
 
-    public Iterable<ResidenceEntity> getAllResidences();
+    public List<ResidenceEntity> getAllResidences();
 
-    void addComment(AddCommentToResidenceDto addCommentToResidenceDto);
+    public ResidenceEntity addComment(AddCommentToResidenceDto addCommentToResidenceDto);
+
+    public ResidenceEntity updateResidence(ResidenceEntity residenceEntity) throws RestException;
+
+    void deleteResidence(ResidenceEntity residenceEntity);
+
+    List<ResidenceEntity> getResidencesBasedOnUserSearchedLocations(UserUtilsDto userUtilsDto);
 }

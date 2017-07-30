@@ -5,6 +5,8 @@ package com.webapplication.dto.residence;
  */
 public class SearchResidenceDto {
 
+    private String username;
+
     private String location;
 
     private String datesAvailable;
@@ -35,4 +37,11 @@ public class SearchResidenceDto {
         this.datesAvailable = datesAvailable;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

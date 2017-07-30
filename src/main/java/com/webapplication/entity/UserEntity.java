@@ -4,6 +4,7 @@ package com.webapplication.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity(name = "Users")
@@ -51,7 +52,17 @@ public class UserEntity {
     })
     @JsonIgnore
     @ManyToMany
-    private List<ResidenceEntity> residences;
+    private List<ResidenceEntity> residences = new ArrayList<>();
+
+    @JoinTable(name = "Users_have_SearchedLocations", joinColumns = {
+            @JoinColumn(name = "USER_ID")
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "SEARCH_ID")
+    })
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<SearchEntity> searchedLocations = new ArrayList<>();
+
 
     public Integer getUserId() {
         return userId;
@@ -131,5 +142,13 @@ public class UserEntity {
 
     public void setResidences(List<ResidenceEntity> residences) {
         this.residences = residences;
+    }
+
+    public List<SearchEntity> getSearchedLocations() {
+        return searchedLocations;
+    }
+
+    public void setSearchedLocations(List<SearchEntity> searchedLocations) {
+        this.searchedLocations = searchedLocations;
     }
 }
