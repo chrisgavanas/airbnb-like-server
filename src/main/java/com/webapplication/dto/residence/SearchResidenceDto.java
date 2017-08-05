@@ -9,7 +9,7 @@ public class SearchResidenceDto {
 
     private String location;
 
-    private String datesAvailable;
+    private String dates;
 
     private Integer capacity;
 
@@ -29,12 +29,12 @@ public class SearchResidenceDto {
         this.location = location;
     }
 
-    public String getDatesAvailable() {
-        return datesAvailable;
+    public String getDates() {
+        return dates;
     }
 
-    public void setDatesAvailable(String datesAvailable) {
-        this.datesAvailable = datesAvailable;
+    public void setDates(String dates) {
+        this.dates = dates;
     }
 
     public String getUsername() {

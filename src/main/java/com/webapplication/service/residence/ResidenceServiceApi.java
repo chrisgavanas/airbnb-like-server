@@ -25,4 +25,6 @@ public interface ResidenceServiceApi {
     void deleteResidence(ResidenceEntity residenceEntity);
 
     List<ResidenceEntity> getResidencesBasedOnUserSearchedLocations(UserUtilsDto userUtilsDto);
+
+    ResidenceEntity reserveResidence(ResidenceEntity residenceEntity);
 }

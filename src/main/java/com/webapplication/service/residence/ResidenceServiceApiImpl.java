@@ -14,10 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Transactional
 @Service
@@ -41,7 +41,7 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
     public List<ResidenceEntity> searchResidence(SearchResidenceDto searchResidenceDto) throws RestException {
         String location = searchResidenceDto.getLocation();
         Integer capacity = searchResidenceDto.getCapacity();
-        String datesAvailable = searchResidenceDto.getDatesAvailable();
+        String reservationDates = searchResidenceDto.getDates();
         String username = searchResidenceDto.getUsername();
 
         UserEntity user = userRepository.findUserEntityByUsername(username);
@@ -51,7 +51,7 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
 
         user.getSearchedLocations().add(searchEntity);
 
-        return residenceRepository.findByLocationOrCapacityOrDatesAvailable(location,capacity,datesAvailable);
+        return residenceRepository.findByLocationOrCapacity(location,capacity);
     }
 
     @Override
@@ -113,7 +113,7 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
         List<SearchEntity> searchedResidences = user.getSearchedLocations();
 
         for(SearchEntity se : searchedResidences){
-            List<ResidenceEntity> re = residenceRepository.findByLocationOrCapacityOrDatesAvailable(se.getLocation(),null,null);
+            List<ResidenceEntity> re = residenceRepository.findByLocationOrCapacity(se.getLocation(),null);
             for(ResidenceEntity r : re){
                 if (! resultSet.contains(r))
                     resultSet.add(r);
@@ -121,6 +121,17 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
         }
 
         return new ArrayList<>(resultSet);
+    }
+
+    @Override
+    public ResidenceEntity reserveResidence(ResidenceEntity residenceEntity) {
+        ResidenceEntity re = residenceRepository.findOne(residenceEntity.getResidenceId());
+        if ( re == null  )
+            return null;
+        String dates = re.getDatesReserved();
+        dates+= "," + residenceEntity.getDatesReserved();
+        re.setDatesReserved(dates);
+        return residenceRepository.save(re);
     }
 
 }

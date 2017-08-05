@@ -58,5 +58,10 @@ public class ResidenceApiImpl implements ResidenceApi {
         return residenceServiceApi.getResidencesBasedOnUserSearchedLocations(userUtilsDto);
     }
 
+    @Override
+    public ResidenceEntity reserveResidence(@RequestBody ResidenceEntity residenceEntity) throws RestException {
+        return residenceServiceApi.reserveResidence(residenceEntity);
+    }
+
 
 }

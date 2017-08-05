@@ -13,7 +13,7 @@ public class AddResidenceResponseDto {
 
     private Double geoY;
 
-    private String datesAvailable;
+    private String datesReserved;
 
     private Integer capacity;
 
@@ -71,12 +71,12 @@ public class AddResidenceResponseDto {
         this.geoY = geoY;
     }
 
-    public String getDatesAvailable() {
-        return datesAvailable;
+    public String getDatesReserved() {
+        return datesReserved;
     }
 
-    public void setDatesAvailable(String datesAvailable) {
-        this.datesAvailable = datesAvailable;
+    public void setDatesReserved(String datesReserved) {
+        this.datesReserved = datesReserved;
     }
 
     public Integer getCapacity() {

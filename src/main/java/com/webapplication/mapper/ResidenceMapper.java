@@ -30,7 +30,7 @@ public class ResidenceMapper {
         residenceEntity.setAddress(addResidenceRequestDto.getAddress());
         residenceEntity.setGeoX(addResidenceRequestDto.getGeoX());
         residenceEntity.setGeoY(addResidenceRequestDto.getGeoY());
-        residenceEntity.setDatesAvailable(addResidenceRequestDto.getDatesAvailable());
+        residenceEntity.setDatesReserved(addResidenceRequestDto.getDatesReserved());
         residenceEntity.setCapacity(addResidenceRequestDto.getCapacity());
         residenceEntity.setPrize(addResidenceRequestDto.getPrize());
         residenceEntity.setType(addResidenceRequestDto.getType());
@@ -41,7 +41,7 @@ public class ResidenceMapper {
         residenceEntity.setBedrooms(addResidenceRequestDto.getBedrooms());
         residenceEntity.setLivingRoom(addResidenceRequestDto.getLivingRoom());
         residenceEntity.setLocation(addResidenceRequestDto.getLocation());
-        UserEntity user = userRepository.findUserEntityByUserId(addResidenceRequestDto.getUserId());
+        UserEntity user = userRepository.findUserEntityByUsername(addResidenceRequestDto.getUsername());
         user.getResidences().add(residenceEntity);
         residenceEntity.setUsers(Collections.singletonList(user));
         return residenceEntity;
@@ -57,7 +57,7 @@ public class ResidenceMapper {
         addResidenceResponseDto.setBathrooms(residenceEntity.getBathrooms());
         addResidenceResponseDto.setBedrooms(residenceEntity.getBedrooms());
         addResidenceResponseDto.setCapacity(residenceEntity.getCapacity());
-        addResidenceResponseDto.setDatesAvailable(residenceEntity.getDatesAvailable());
+        addResidenceResponseDto.setDatesReserved(residenceEntity.getDatesReserved());
         addResidenceResponseDto.setGeoX(residenceEntity.getGeoX());
         addResidenceResponseDto.setGeoY(residenceEntity.getGeoY());
         addResidenceResponseDto.setDescription(residenceEntity.getDescription());

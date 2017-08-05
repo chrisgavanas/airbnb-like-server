@@ -11,7 +11,7 @@ public class AddResidenceRequestDto {
 
     private Double geoY;
 
-    private String datesAvailable;
+    private String datesReserved;
 
     private Integer capacity;
 
@@ -33,7 +33,7 @@ public class AddResidenceRequestDto {
 
     private String location;
 
-    private Integer userId;
+    private String username;
 
     private List<String> photoPaths;
 
@@ -61,12 +61,12 @@ public class AddResidenceRequestDto {
         this.geoY = geoY;
     }
 
-    public String getDatesAvailable() {
-        return datesAvailable;
+    public String getDatesReserved() {
+        return datesReserved;
     }
 
-    public void setDatesAvailable(String datesAvailable) {
-        this.datesAvailable = datesAvailable;
+    public void setDatesReserved(String datesReserved) {
+        this.datesReserved = datesReserved;
     }
 
     public Integer getCapacity() {
@@ -149,12 +149,12 @@ public class AddResidenceRequestDto {
         this.location = location;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public List<String> getPhotoPaths() {

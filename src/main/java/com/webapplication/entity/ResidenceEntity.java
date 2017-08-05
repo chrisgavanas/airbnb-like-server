@@ -1,7 +1,6 @@
 package com.webapplication.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,8 +23,8 @@ public class ResidenceEntity {
     @Column(name = "GEO_Y")
     private Double geoY;
 
-    @Column(name = "DATE_AVAILABLE")
-    private String datesAvailable = ";";
+    @Column(name = "DATE_RESERVED")
+    private String datesReserved;
 
     @Column(name = "CAPACITY")
     private Integer capacity;
@@ -100,12 +99,12 @@ public class ResidenceEntity {
         this.geoY = geoY;
     }
 
-    public String getDatesAvailable() {
-        return datesAvailable;
+    public String getDatesReserved() {
+        return datesReserved;
     }
 
-    public void setDatesAvailable(String datesAvailable) {
-        this.datesAvailable = datesAvailable;
+    public void setDatesReserved(String datesReserved) {
+        this.datesReserved = datesReserved;
     }
 
     public Integer getCapacity() {
