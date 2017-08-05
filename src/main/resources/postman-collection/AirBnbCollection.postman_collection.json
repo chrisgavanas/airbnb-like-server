@@ -12,7 +12,8 @@
 		"c17a1248-a1e6-a2c8-d575-390a9b0ac66c",
 		"358943e6-f4ee-dfaf-282c-b94026429fb0",
 		"391d20e7-888d-2b12-91d8-6eaaa809c3aa",
-		"4ec40088-0ea5-be78-4628-0110b1eb755b"
+		"4ec40088-0ea5-be78-4628-0110b1eb755b",
+		"434863a9-da9d-0d84-56f0-092d8c3f65eb"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -94,12 +95,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1501451110998,
+			"time": 1501946792796,
 			"name": "http://localhost:8080/updateResidence",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n\t\"residenceId\" : 5,\n\t\"address\" : \"Gr. Lampraki\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"datesAvailable\" : \"1;2;\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please - Updated rules\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"userId\" : 3,\n\t\"location\" : \"Athens\"\n}"
+			"rawModeData": "{\n\t\"residenceId\" : 1,\n\t\"address\" : \"Gr. Lampraki\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"datesReserved\" : \";\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please - Updated rules\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"userId\" : 3,\n\t\"location\" : \"Athens\"\n}"
 		},
 		{
 			"id": "391d20e7-888d-2b12-91d8-6eaaa809c3aa",
@@ -129,6 +130,35 @@
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
 			"rawModeData": " {\n        \"residenceId\": 4,\n        \"address\": \"Andromahis\",\n        \"geoX\": 20.1,\n        \"geoY\": 10,\n        \"datesAvailable\": \"1;2;\",\n        \"capacity\": 4,\n        \"prize\": 50,\n        \"type\": \"Saloon\",\n        \"rules\": \"Attention please\",\n        \"description\": \"Diamperes\",\n        \"bathrooms\": 1,\n        \"size\": 90.12,\n        \"bedrooms\": 3,\n        \"livingRoom\": true,\n        \"location\": null,\n        \"comments\": [\n            {\n                \"commentId\": 4,\n                \"comment\": \"Test comment\",\n                \"grade\": 4\n            }\n        ]\n    }"
+		},
+		{
+			"id": "434863a9-da9d-0d84-56f0-092d8c3f65eb",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/reserveResidence",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1501947770241,
+			"name": "http://localhost:8080/reserveResidence",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
+			"responses": [],
+			"rawModeData": "{\n\t\"residenceId\" : \"1\",\n\t\"datesReserved\" : \"08/08/2017;14/08/2017\"\n}"
 		},
 		{
 			"id": "4ec40088-0ea5-be78-4628-0110b1eb755b",
@@ -184,12 +214,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1501450853342,
+			"time": 1501944289911,
 			"name": "http://localhost:8080/searchResidence",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n\t\"username\" : \"chris\",\n\t\"capacity\" : null,\n\t\"location\" : \"Athens\",\n\t\"datesAvailable\" : null\n}"
+			"rawModeData": "{\n\t\"username\" : \"chris\",\n\t\"capacity\" : 2,\n\t\"location\" : \"Athens\",\n\t\"dates\" : \"01/08/2017;06/08/2017\"\n}"
 		},
 		{
 			"id": "98903950-4b34-58f2-00a6-d032bcb1ce28",
@@ -274,12 +304,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1501451130563,
+			"time": 1501945474388,
 			"name": "http://localhost:8080/residence",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n\t\"address\" : \"Andromahis\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"datesAvailable\" : \"1;2;\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"userId\" : 3\n}"
+			"rawModeData": "{\n\t\"address\" : \"Andromahis\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"datesReserved\" : \"\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"username\" : \"chris\"\n}"
 		},
 		{
 			"id": "fb30b766-91e0-1d09-02eb-a9a5bfcfc419",
