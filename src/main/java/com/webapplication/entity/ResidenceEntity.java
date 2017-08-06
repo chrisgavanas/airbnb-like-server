@@ -23,9 +23,6 @@ public class ResidenceEntity {
     @Column(name = "GEO_Y")
     private Double geoY;
 
-    @Column(name = "DATE_RESERVED")
-    private String datesReserved;
-
     @Column(name = "CAPACITY")
     private Integer capacity;
 
@@ -67,6 +64,9 @@ public class ResidenceEntity {
     @OneToMany(mappedBy = "residenceEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CommentEntity> comments = new ArrayList<>();
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.residence")
+    private List<ReservationEntity> reservationInfo = new ArrayList<>();
+
     public Integer getResidenceId() {
         return residenceId;
     }
@@ -97,14 +97,6 @@ public class ResidenceEntity {
 
     public void setGeoY(Double geoY) {
         this.geoY = geoY;
-    }
-
-    public String getDatesReserved() {
-        return datesReserved;
-    }
-
-    public void setDatesReserved(String datesReserved) {
-        this.datesReserved = datesReserved;
     }
 
     public Integer getCapacity() {
@@ -211,5 +203,11 @@ public class ResidenceEntity {
         this.comments = comments;
     }
 
+    public List<ReservationEntity> getReservationInfo() {
+        return reservationInfo;
+    }
 
+    public void setReservationInfo(List<ReservationEntity> reservationInfo) {
+        this.reservationInfo = reservationInfo;
+    }
 }

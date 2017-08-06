@@ -13,7 +13,10 @@
 		"358943e6-f4ee-dfaf-282c-b94026429fb0",
 		"391d20e7-888d-2b12-91d8-6eaaa809c3aa",
 		"4ec40088-0ea5-be78-4628-0110b1eb755b",
-		"434863a9-da9d-0d84-56f0-092d8c3f65eb"
+		"434863a9-da9d-0d84-56f0-092d8c3f65eb",
+		"a2bdf77e-a0ac-c937-5910-21ae9c38650e",
+		"613e4026-bad8-0475-6aff-4dff23408a8a",
+		"b17e0c7c-35cd-6df6-968c-16a50377c2c9"
 	],
 	"folders": [],
 	"folders_order": [],
@@ -55,23 +58,22 @@
 			],
 			"url": "http://localhost:8080/register",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"data": [],
 			"dataMode": "raw",
-			"name": "http://localhost:8080/register",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1499277394099,
 			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"rawModeData": "{\n\t\"username\" : \"chris\",\n\t\"password\" : \"123123\",\n\t\"name\" : \"Xristos\", \n\t\"surname\" : \"Gavanas\",\n\t\"email\" : \"chrisgavanas@gmail.com\",\n\t\"phoneNumber\" : \"6980387129\",\n\t\"roleDtos\" : [\n\t\t\"HOST\",\n\t\t\"TENANT\"\n\t]\n}"
+			"time": 1502058162589,
+			"name": "http://localhost:8080/register",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\" : \"chris\",\n\t\"password\" : \"123123\",\n\t\"name\" : \"Panagiotis\", \n\t\"surname\" : \"Kanakakis\",\n\t\"email\" : \"pkanakakis@di.uoa.gr\",\n\t\"phoneNumber\" : \"6973510999\",\n\t\"roleDtos\" : [\n\t\t\"HOST\",\n\t\t\"TENANT\"\n\t]\n}"
 		},
 		{
 			"id": "358943e6-f4ee-dfaf-282c-b94026429fb0",
@@ -95,12 +97,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1501946792796,
+			"time": 1502029036782,
 			"name": "http://localhost:8080/updateResidence",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n\t\"residenceId\" : 1,\n\t\"address\" : \"Gr. Lampraki\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"datesReserved\" : \";\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please - Updated rules\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"userId\" : 3,\n\t\"location\" : \"Athens\"\n}"
+			"rawModeData": "{\n\t\"residenceId\" : 2,\n\t\"address\" : \"Gr. Lampraki\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please - Updated rules\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"userId\" : 3,\n\t\"location\" : \"Athens\"\n}"
 		},
 		{
 			"id": "391d20e7-888d-2b12-91d8-6eaaa809c3aa",
@@ -153,12 +155,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1501947770241,
+			"time": 1502029237591,
 			"name": "http://localhost:8080/reserveResidence",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n\t\"residenceId\" : \"1\",\n\t\"datesReserved\" : \"08/08/2017;14/08/2017\"\n}"
+			"rawModeData": "{\n\t\"residenceId\" : 1,\n\t\"userId\" : 1,\n\t\"arrivalDate\" : \"2017-08-01\",\n\t\"departureDate\" : \"2017-08-08\"\n}"
 		},
 		{
 			"id": "4ec40088-0ea5-be78-4628-0110b1eb755b",
@@ -173,23 +175,22 @@
 			],
 			"url": "http://localhost:8080/getResidencesBasedOnUserSearchedLocations",
 			"queryParams": [],
+			"preRequestScript": null,
 			"pathVariables": {},
 			"pathVariableData": [],
-			"preRequestScript": null,
 			"method": "POST",
-			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"data": [],
 			"dataMode": "raw",
-			"name": "http://localhost:8080/getResidencesBasedOnUserSearchedLocations",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1501450703526,
 			"version": 2,
-			"responses": [],
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"rawModeData": "{\n\t\"username\" : \"chris\"\n}"
+			"time": 1502029180595,
+			"name": "http://localhost:8080/getResidencesBasedOnUserSearchedLocations",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
+			"responses": [],
+			"rawModeData": "{\n\t\"userId\" : 1\n}"
 		},
 		{
 			"id": "51c26563-91dd-b41e-4aa8-00d2c2c49f5a",
@@ -214,12 +215,41 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1501944289911,
+			"time": 1502034826055,
 			"name": "http://localhost:8080/searchResidence",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n\t\"username\" : \"chris\",\n\t\"capacity\" : 2,\n\t\"location\" : \"Athens\",\n\t\"dates\" : \"01/08/2017;06/08/2017\"\n}"
+			"rawModeData": "{\n\t\"userId\" : 1,\n\t\"capacity\" : 5,\n\t\"location\" : \"Athens\",\n\t\"arrivalDate\" : \"2017-08-09\",\n\t\"departureDate\" : \"2017-08-18\"\n}"
+		},
+		{
+			"id": "613e4026-bad8-0475-6aff-4dff23408a8a",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/getInbox",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502059478352,
+			"name": "http://localhost:8080/getInbox",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
+			"responses": [],
+			"rawModeData": "{\n\t\"userId\" : 2\n}"
 		},
 		{
 			"id": "98903950-4b34-58f2-00a6-d032bcb1ce28",
@@ -251,6 +281,64 @@
 			"currentHelper": "normal",
 			"helperAttributes": {},
 			"rawModeData": "{\n\t\"username\" : \"chris\",\n\t\"password\" : \"123123\"\n}"
+		},
+		{
+			"id": "a2bdf77e-a0ac-c937-5910-21ae9c38650e",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/newMessage",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502059355860,
+			"name": "http://localhost:8080/newMessage",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
+			"responses": [],
+			"rawModeData": "{\n\t\"fromUserId\": 1,\n\t\"toUserId\": 2,\n\t\"messageText\": \"test message \"\n}"
+		},
+		{
+			"id": "b17e0c7c-35cd-6df6-968c-16a50377c2c9",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/getOutbox",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502059695128,
+			"name": "http://localhost:8080/getOutbox",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
+			"responses": [],
+			"rawModeData": "{\n\t\"userId\" : 1\n}"
 		},
 		{
 			"id": "c17a1248-a1e6-a2c8-d575-390a9b0ac66c",
@@ -304,12 +392,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1501945474388,
+			"time": 1502021479884,
 			"name": "http://localhost:8080/residence",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n\t\"address\" : \"Andromahis\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"datesReserved\" : \"\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"username\" : \"chris\"\n}"
+			"rawModeData": "{\n\t\"address\" : \"Andromahis\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"username\" : \"chris\"\n}"
 		},
 		{
 			"id": "fb30b766-91e0-1d09-02eb-a9a5bfcfc419",
@@ -333,12 +421,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1501435251946,
+			"time": 1502029478480,
 			"name": "http://localhost:8080/searchResidenceById",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n\t\"residenceId\" : \"4\"\n}"
+			"rawModeData": "{\n\t\"residenceId\" : 2\n}"
 		}
 	]
 }

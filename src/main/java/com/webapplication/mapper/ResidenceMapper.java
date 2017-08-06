@@ -30,7 +30,6 @@ public class ResidenceMapper {
         residenceEntity.setAddress(addResidenceRequestDto.getAddress());
         residenceEntity.setGeoX(addResidenceRequestDto.getGeoX());
         residenceEntity.setGeoY(addResidenceRequestDto.getGeoY());
-        residenceEntity.setDatesReserved(addResidenceRequestDto.getDatesReserved());
         residenceEntity.setCapacity(addResidenceRequestDto.getCapacity());
         residenceEntity.setPrize(addResidenceRequestDto.getPrize());
         residenceEntity.setType(addResidenceRequestDto.getType());
@@ -57,7 +56,6 @@ public class ResidenceMapper {
         addResidenceResponseDto.setBathrooms(residenceEntity.getBathrooms());
         addResidenceResponseDto.setBedrooms(residenceEntity.getBedrooms());
         addResidenceResponseDto.setCapacity(residenceEntity.getCapacity());
-        addResidenceResponseDto.setDatesReserved(residenceEntity.getDatesReserved());
         addResidenceResponseDto.setGeoX(residenceEntity.getGeoX());
         addResidenceResponseDto.setGeoY(residenceEntity.getGeoY());
         addResidenceResponseDto.setDescription(residenceEntity.getDescription());

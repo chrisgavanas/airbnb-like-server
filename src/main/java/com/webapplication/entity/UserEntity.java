@@ -63,6 +63,13 @@ public class UserEntity {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<SearchEntity> searchedLocations = new ArrayList<>();
 
+    @OneToMany(mappedBy = "pk.user", cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<ReservationEntity> reservedResidences = new ArrayList<>();
+
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnore
+    private MailboxEntity mailbox = new MailboxEntity();
 
     public Integer getUserId() {
         return userId;
@@ -150,5 +157,21 @@ public class UserEntity {
 
     public void setSearchedLocations(List<SearchEntity> searchedLocations) {
         this.searchedLocations = searchedLocations;
+    }
+
+    public List<ReservationEntity> getReservedResidences() {
+        return reservedResidences;
+    }
+
+    public void setReservedResidences(List<ReservationEntity> reservedResidences) {
+        this.reservedResidences = reservedResidences;
+    }
+
+    public MailboxEntity getMailbox() {
+        return mailbox;
+    }
+
+    public void setMailbox(MailboxEntity mailbox) {
+        this.mailbox = mailbox;
     }
 }

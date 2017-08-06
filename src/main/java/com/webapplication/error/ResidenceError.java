@@ -1,16 +1,15 @@
 package com.webapplication.error;
 
+/**
+ * Created by panagiotis on 6/8/2017.
+ */
+public enum ResidenceError {
 
-public enum UserError {
-
-    USERNAME_ALREADY_EXISTS("Username already exists"),
-    INVALID_CREDENTIALS("Username and password do not match."),
-    CONFIGURATION_ERROR("Configuration error"),
-    USER_NOT_EXISTS("UserId not exists");
+    RESIDENCE_ID_NOT_EXISTS("Residence not exists");
 
     private String description;
 
-    private UserError(String description) {
+    private ResidenceError(String description) {
         this.description = description;
     }
 

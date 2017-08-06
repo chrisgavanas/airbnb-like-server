@@ -18,4 +18,6 @@ public interface UserApi {
     @RequestMapping(path = "/login", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     UserLogInResponseDto login(UserLogInRequestDto userLogInRequestDto) throws RestException;
 
+
+
 }

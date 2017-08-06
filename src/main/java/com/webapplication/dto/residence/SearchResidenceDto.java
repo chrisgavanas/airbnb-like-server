@@ -1,15 +1,19 @@
 package com.webapplication.dto.residence;
 
+import java.util.Date;
+
 /**
  * Created by panagiotis on 27/7/2017.
  */
 public class SearchResidenceDto {
 
-    private String username;
+    private Integer userId;
 
     private String location;
 
-    private String dates;
+    private Date arrivalDate;
+
+    private Date departureDate;
 
     private Integer capacity;
 
@@ -29,19 +33,27 @@ public class SearchResidenceDto {
         this.location = location;
     }
 
-    public String getDates() {
-        return dates;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public void setDates(String dates) {
-        this.dates = dates;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public String getUsername() {
-        return username;
+    public Date getArrivalDate() {
+        return arrivalDate;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public Date getDepartureDate() {
+        return departureDate;
+    }
+
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
+    }
+
+    public void setDepartureDate(Date departureDate) {
+        this.departureDate = departureDate;
     }
 }

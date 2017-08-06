@@ -34,6 +34,7 @@ public class UserMapper {
         userEntity.setEmail(userRegisterRequestDto.getEmail());
         userEntity.setPhoneNumber(userRegisterRequestDto.getPhoneNumber());
         userEntity.setSalt(encodedSalt);
+        userEntity.getMailbox().setUser(userEntity);
         List<RoleEntity> roles = new LinkedList<>();
         userRegisterRequestDto.getRoleDtos()
                 .stream()

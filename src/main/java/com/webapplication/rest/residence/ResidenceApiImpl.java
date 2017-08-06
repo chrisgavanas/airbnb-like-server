@@ -59,8 +59,8 @@ public class ResidenceApiImpl implements ResidenceApi {
     }
 
     @Override
-    public ResidenceEntity reserveResidence(@RequestBody ResidenceEntity residenceEntity) throws RestException {
-        return residenceServiceApi.reserveResidence(residenceEntity);
+    public void reserveResidence(@RequestBody ReservationDto reservationDto) throws RestException {
+        residenceServiceApi.reserveResidence(reservationDto);
     }
 
 
