@@ -6,7 +6,7 @@ public enum UserError {
     USERNAME_ALREADY_EXISTS("Username already exists"),
     INVALID_CREDENTIALS("Username and password do not match."),
     CONFIGURATION_ERROR("Configuration error"),
-    USER_NOT_EXISTS("UserId not exists");
+    USER_NOT_EXISTS("User not exists");
 
     private String description;
 

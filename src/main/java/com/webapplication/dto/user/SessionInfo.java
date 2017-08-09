@@ -5,16 +5,16 @@ import java.time.LocalDateTime;
 
 public class SessionInfo {
 
-    private final Integer userId;
+    private final String username;
     private LocalDateTime date;
 
-    public SessionInfo(Integer userId, LocalDateTime date) {
-        this.userId = userId;
+    public SessionInfo(String username, LocalDateTime date) {
+        this.username = username;
         this.date = date;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
     public LocalDateTime getDate() {

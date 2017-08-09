@@ -11,7 +11,7 @@ import java.util.Date;
 @Table(name="Reservations")
 @AssociationOverrides({
         @AssociationOverride(name = "pk.user",
-                joinColumns = @JoinColumn(name = "USER_ID")),
+                joinColumns = @JoinColumn(name = "USERNAME")),
         @AssociationOverride(name = "pk.residence",
                 joinColumns = @JoinColumn(name = "RESIDENCE_ID")) })
 public class ReservationEntity implements Serializable{

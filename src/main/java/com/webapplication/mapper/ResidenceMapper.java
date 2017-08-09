@@ -66,7 +66,7 @@ public class ResidenceMapper {
         addResidenceResponseDto.setRules(residenceEntity.getRules());
         addResidenceResponseDto.setType(residenceEntity.getType());
         addResidenceResponseDto.setSize(residenceEntity.getSize());
-        addResidenceResponseDto.setUserId(residenceEntity.getUsers().get(0).getUserId());       // TODO needs to change
+      //  addResidenceResponseDto.setUserId(residenceEntity.getUsers().get(0).getUserId());       // TODO needs to change
         List<String> photos = Optional.ofNullable(residenceEntity.getPhotos().stream().map(PhotoEntity::getPath).collect(Collectors.toList())).orElse(new LinkedList<>());
         addResidenceResponseDto.setPhotoPaths(photos);
         return addResidenceResponseDto;

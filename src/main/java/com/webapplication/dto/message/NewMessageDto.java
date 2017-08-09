@@ -8,26 +8,26 @@ import java.util.Date;
  */
 public class NewMessageDto {
 
-    private Integer fromUserId;
+    private String fromUser;
 
-    private Integer toUserId;
+    private String toUser;
 
     private String messageText;
 
-    public Integer getFromUserId() {
-        return fromUserId;
+    public String getFromUser() {
+        return fromUser;
     }
 
-    public void setFromUserId(Integer fromUserId) {
-        this.fromUserId = fromUserId;
+    public void setFromUser(String fromUser) {
+        this.fromUser = fromUser;
     }
 
-    public Integer getToUserId() {
-        return toUserId;
+    public String getToUser() {
+        return toUser;
     }
 
-    public void setToUserId(Integer toUserId) {
-        this.toUserId = toUserId;
+    public void setToUser(String toUser) {
+        this.toUser = toUser;
     }
 
     public String getMessageText() {

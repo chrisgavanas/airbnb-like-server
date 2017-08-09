@@ -39,12 +39,12 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
     public List<ResidenceEntity> searchResidence(SearchResidenceDto searchResidenceDto) throws RestException {
         String location = searchResidenceDto.getLocation();
         Integer capacity = searchResidenceDto.getCapacity();
-        Integer userId = searchResidenceDto.getUserId();
+        String username = searchResidenceDto.getUsername();
         Date arrivalDate = searchResidenceDto.getArrivalDate();
         Date departureDate = searchResidenceDto.getDepartureDate();
         List<ResidenceEntity> resultSet = new ArrayList<>();
 
-        UserEntity user = userRepository.findUserEntityByUserId(userId);
+        UserEntity user = userRepository.findUserEntityByUsername(username);
         if(user == null)
             throw new AuthenticationException(UserError.USER_NOT_EXISTS);
 
@@ -134,7 +134,7 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
 
     @Override
     public List<ResidenceEntity> getResidencesBasedOnUserSearchedLocations(UserUtilsDto userUtilsDto) throws RestException{
-        UserEntity user = userRepository.findUserEntityByUserId(userUtilsDto.getUserId());
+        UserEntity user = userRepository.findUserEntityByUsername(userUtilsDto.getUsername());
         Set<ResidenceEntity> resultSet = new HashSet<>();
         List<SearchEntity> searchedResidences = user.getSearchedLocations();
 
@@ -159,7 +159,7 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
         ReservationEntity re = new ReservationEntity();
 
         ResidenceEntity r = residenceRepository.findOne(reservationDto.getResidenceId());
-        UserEntity u = userRepository.findUserEntityByUserId(reservationDto.getUserId());
+        UserEntity u = userRepository.findUserEntityByUsername(reservationDto.getUsername());
 
         if( u == null )
             throw new AuthenticationException(UserError.USER_NOT_EXISTS);

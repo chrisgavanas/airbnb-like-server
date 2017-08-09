@@ -35,7 +35,7 @@ public class AddResidenceResponseDto {
 
     private String location;
 
-    private Integer userId;
+    private String  username;
 
     private List<String> photoPaths;
 
@@ -159,12 +159,12 @@ public class AddResidenceResponseDto {
         this.location = location;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public List<String> getPhotoPaths() {

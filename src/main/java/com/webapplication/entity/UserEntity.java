@@ -10,11 +10,12 @@ import java.util.List;
 @Entity(name = "Users")
 public class UserEntity {
 
-    @Id
+    /*@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "USER_ID")
-    private Integer userId;
+    private Integer userId;*/
 
+    @Id
     @Column(name = "USERNAME")
     private String username;
 
@@ -38,7 +39,7 @@ public class UserEntity {
 
     @JsonIgnore
     @JoinTable(name = "Users_have_Roles", joinColumns = {
-            @JoinColumn(name = "USER_ID")
+            @JoinColumn(name = "USERNAME")
     }, inverseJoinColumns = {
             @JoinColumn(name = "ROLE_ID")
     })
@@ -46,7 +47,7 @@ public class UserEntity {
     private List<RoleEntity> roles;
 
     @JoinTable(name = "Users_have_Residences", joinColumns = {
-            @JoinColumn(name = "USER_ID")
+            @JoinColumn(name = "USERNAME")
     }, inverseJoinColumns = {
             @JoinColumn(name = "RESIDENCE_ID")
     })
@@ -55,7 +56,7 @@ public class UserEntity {
     private List<ResidenceEntity> residences = new ArrayList<>();
 
     @JoinTable(name = "Users_have_SearchedLocations", joinColumns = {
-            @JoinColumn(name = "USER_ID")
+            @JoinColumn(name = "USERNAME")
     }, inverseJoinColumns = {
             @JoinColumn(name = "SEARCH_ID")
     })
@@ -70,14 +71,14 @@ public class UserEntity {
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonIgnore
     private MailboxEntity mailbox = new MailboxEntity();
-
+/*
     public Integer getUserId() {
         return userId;
     }
 
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
+    }*/
 
     public String getUsername() {
         return username;

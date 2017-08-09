@@ -83,9 +83,15 @@ public class UserServiceApiImpl implements UserServiceApi {
         if (!validated) {
             throw new AuthenticationException(UserError.INVALID_CREDENTIALS);
         }
-        SessionInfo sessionInfo = new SessionInfo(user.getUserId(), LocalDateTime.now(clock).plusMinutes(Authenticator.SESSION_TIME_OUT_MINUTES));
+        SessionInfo sessionInfo = new SessionInfo(user.getUsername(), LocalDateTime.now(clock).plusMinutes(Authenticator.SESSION_TIME_OUT_MINUTES));
         UUID authToken = authenticator.createSession(sessionInfo);
         return userMapper.toUserLogInResponseDto(user, authToken);
+    }
+
+    @Override
+    public UserProfileDto getProfile(UserUtilsDto userUtilsDto) {
+        UserEntity user = userRepository.findUserEntityByUsername(userUtilsDto.getUsername());
+        return userMapper.toUserProfileDto(user);
     }
 
     private byte[] createSaltForUser() throws NoSuchAlgorithmException {

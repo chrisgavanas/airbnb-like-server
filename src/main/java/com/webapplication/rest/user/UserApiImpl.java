@@ -1,10 +1,7 @@
 package com.webapplication.rest.user;
 
 
-import com.webapplication.dto.user.UserLogInRequestDto;
-import com.webapplication.dto.user.UserLogInResponseDto;
-import com.webapplication.dto.user.UserRegisterRequestDto;
-import com.webapplication.dto.user.UserRegisterResponseDto;
+import com.webapplication.dto.user.*;
 import com.webapplication.exception.AuthenticationException;
 import com.webapplication.exception.ConfigurationException;
 import com.webapplication.exception.RestException;
@@ -15,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -33,6 +31,11 @@ public class UserApiImpl implements UserApi {
     @Override
     public UserLogInResponseDto login(@RequestBody UserLogInRequestDto userLogInRequestDto) throws RestException {
         return userServiceApi.login(userLogInRequestDto);
+    }
+
+    @Override
+    public UserProfileDto getProfile(@RequestBody  UserUtilsDto userUtilsDto) throws RestException {
+        return userServiceApi.getProfile(userUtilsDto);
     }
 
     @ExceptionHandler({UserAlreadyExistsException.class, ConfigurationException.class})

@@ -1,9 +1,6 @@
 package com.webapplication.rest.user;
 
-import com.webapplication.dto.user.UserLogInRequestDto;
-import com.webapplication.dto.user.UserLogInResponseDto;
-import com.webapplication.dto.user.UserRegisterRequestDto;
-import com.webapplication.dto.user.UserRegisterResponseDto;
+import com.webapplication.dto.user.*;
 import com.webapplication.exception.RestException;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +15,7 @@ public interface UserApi {
     @RequestMapping(path = "/login", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
     UserLogInResponseDto login(UserLogInRequestDto userLogInRequestDto) throws RestException;
 
-
-
+    @RequestMapping(path = "/getProfile", method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
+    UserProfileDto getProfile(UserUtilsDto userUtilsDto) throws RestException;
+    
 }

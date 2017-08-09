@@ -5,13 +5,13 @@ package com.webapplication.dto.user;
  */
 public class UserUtilsDto {
 
-    private Integer userId;
+    private String username;
 
-    public Integer getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

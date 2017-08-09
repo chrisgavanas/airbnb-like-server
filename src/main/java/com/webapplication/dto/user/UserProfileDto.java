@@ -1,14 +1,10 @@
 package com.webapplication.dto.user;
 
+import com.webapplication.entity.CommentEntity;
 
 import java.util.List;
 
-public class UserRegisterResponseDto {
-
-
-    private String username;
-
-    private String password;
+public class UserProfileDto {
 
     private String name;
 
@@ -18,23 +14,7 @@ public class UserRegisterResponseDto {
 
     private String phoneNumber;
 
-    private List<RoleDto> roleDtos;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    private List<CommentEntity> comments;
 
     public String getName() {
         return name;
@@ -68,11 +48,11 @@ public class UserRegisterResponseDto {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<RoleDto> getRoleDtos() {
-        return roleDtos;
+    public List<CommentEntity> getComments() {
+        return comments;
     }
 
-    public void setRoleDtos(List<RoleDto> roleDtos) {
-        this.roleDtos = roleDtos;
+    public void setComments(List<CommentEntity> comments) {
+        this.comments = comments;
     }
 }

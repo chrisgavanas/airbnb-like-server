@@ -27,13 +27,13 @@ public class MessageServiceApiImpl implements MessageServiceApi {
 
     @Override
     public void sendMessage(NewMessageDto newMessageDto) throws RestException {
-        Integer fromUserId = newMessageDto.getFromUserId();
-        Integer toUserId = newMessageDto.getToUserId();
+        String fromuser = newMessageDto.getFromUser();
+        String touser = newMessageDto.getToUser();
         String text = newMessageDto.getMessageText();
         Date dateCreated = new Date();
 
-        UserEntity fromUser = userRepository.findUserEntityByUserId(fromUserId);
-        UserEntity toUser = userRepository.findUserEntityByUserId(toUserId);
+        UserEntity fromUser = userRepository.findUserEntityByUsername(fromuser);
+        UserEntity toUser = userRepository.findUserEntityByUsername(touser);
 
         if(fromUser == null || toUser == null)
             throw new AuthenticationException(UserError.USER_NOT_EXISTS);
@@ -54,7 +54,7 @@ public class MessageServiceApiImpl implements MessageServiceApi {
 
     @Override
     public List<MessageEntity> getInboxMessages(UserUtilsDto userUtilsDto) throws RestException{
-        UserEntity userEntity = userRepository.findUserEntityByUserId(userUtilsDto.getUserId());
+        UserEntity userEntity = userRepository.findUserEntityByUsername(userUtilsDto.getUsername());
         if(userEntity == null)
             throw new AuthenticationException(UserError.USER_NOT_EXISTS);
 
@@ -63,7 +63,7 @@ public class MessageServiceApiImpl implements MessageServiceApi {
 
     @Override
     public List<MessageEntity> getOutboxMessages(UserUtilsDto userUtilsDto)  throws RestException{
-        UserEntity userEntity = userRepository.findUserEntityByUserId(userUtilsDto.getUserId());
+        UserEntity userEntity = userRepository.findUserEntityByUsername(userUtilsDto.getUsername());
         if(userEntity == null)
             throw new AuthenticationException(UserError.USER_NOT_EXISTS);
 

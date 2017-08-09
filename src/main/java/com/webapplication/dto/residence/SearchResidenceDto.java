@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class SearchResidenceDto {
 
-    private Integer userId;
+    private String username;
 
     private String location;
 
@@ -33,12 +33,12 @@ public class SearchResidenceDto {
         this.location = location;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public String getUsername() {
+        return username;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Date getArrivalDate() {
