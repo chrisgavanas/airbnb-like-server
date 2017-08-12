@@ -17,5 +17,8 @@ public interface UserApi {
 
     @RequestMapping(path = "/getProfile", method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
     UserProfileDto getProfile(UserUtilsDto userUtilsDto) throws RestException;
+
+    @RequestMapping(path = "/updateProfile", method = RequestMethod.POST,consumes = "application/json",produces = "application/json")
+    UserProfileDto updateProfile(UserUpdateProfileDto userUpdateProfileDto) throws RestException;
     
 }

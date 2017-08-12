@@ -38,6 +38,11 @@ public class UserApiImpl implements UserApi {
         return userServiceApi.getProfile(userUtilsDto);
     }
 
+    @Override
+    public UserProfileDto updateProfile(@RequestBody  UserUpdateProfileDto userUpdateProfileDto) throws RestException {
+        return userServiceApi.updateProfile(userUpdateProfileDto);
+    }
+
     @ExceptionHandler({UserAlreadyExistsException.class, ConfigurationException.class})
     private void conflict(UserAlreadyExistsException e, HttpServletResponse response) throws IOException {
         response.sendError(HttpStatus.CONFLICT.value());

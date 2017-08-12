@@ -18,6 +18,10 @@ public class UserRegisterResponseDto {
 
     private String phoneNumber;
 
+    private String city;
+
+    private String photo;
+
     private List<RoleDto> roleDtos;
 
     public String getUsername() {
@@ -74,5 +78,21 @@ public class UserRegisterResponseDto {
 
     public void setRoleDtos(List<RoleDto> roleDtos) {
         this.roleDtos = roleDtos;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

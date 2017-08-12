@@ -60,6 +60,11 @@ public class UserServiceApiImpl implements UserServiceApi {
         if (userEntity != null) {
             throw new UserAlreadyExistsException(UserError.USERNAME_ALREADY_EXISTS);
         }
+        userEntity = userRepository.findUserEnityByEmail(userRegisterRequestDto.getEmail());
+        if (userEntity != null) {
+            throw new UserAlreadyExistsException(UserError.USER_EMAIL_ALREADY_EXISTS);
+        }
+
 
         try {
             byte[] salt = createSaltForUser();
@@ -92,6 +97,13 @@ public class UserServiceApiImpl implements UserServiceApi {
     public UserProfileDto getProfile(UserUtilsDto userUtilsDto) {
         UserEntity user = userRepository.findUserEntityByUsername(userUtilsDto.getUsername());
         return userMapper.toUserProfileDto(user);
+    }
+
+    @Override
+    public UserProfileDto updateProfile(UserUpdateProfileDto userUpdateProfileDto) {
+        UserEntity updatedUser = userMapper.toUpdatedUserEntity(userUpdateProfileDto);
+        userRepository.save(updatedUser);
+        return userMapper.toUserProfileDto(updatedUser);
     }
 
     private byte[] createSaltForUser() throws NoSuchAlgorithmException {

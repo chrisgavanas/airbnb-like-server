@@ -10,11 +10,6 @@ import java.util.List;
 @Entity(name = "Users")
 public class UserEntity {
 
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "USER_ID")
-    private Integer userId;*/
-
     @Id
     @Column(name = "USERNAME")
     private String username;
@@ -34,8 +29,14 @@ public class UserEntity {
     @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
 
+    @Column(name = "CITY")
+    private String city;
+
     @Column(name = "SALT")
     private String salt;
+
+    @OneToOne(mappedBy = "user", cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    private PhotoEntity profilePhoto;
 
     @JsonIgnore
     @JoinTable(name = "Users_have_Roles", joinColumns = {
@@ -55,7 +56,7 @@ public class UserEntity {
     @ManyToMany
     private List<ResidenceEntity> residences = new ArrayList<>();
 
-    @JoinTable(name = "Users_have_SearchedLocations", joinColumns = {
+    @JoinTable(name = "User_has_SearchedLocations", joinColumns = {
             @JoinColumn(name = "USERNAME")
     }, inverseJoinColumns = {
             @JoinColumn(name = "SEARCH_ID")
@@ -64,21 +65,18 @@ public class UserEntity {
     @ManyToMany(cascade = CascadeType.ALL)
     private List<SearchEntity> searchedLocations = new ArrayList<>();
 
-    @OneToMany(mappedBy = "pk.user", cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name = "User_makes_Reservation", joinColumns = {
+            @JoinColumn(name = "USERNAME")
+    }, inverseJoinColumns = {
+            @JoinColumn(name = "RESERVATION_ID")
+    })
     @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<ReservationEntity> reservedResidences = new ArrayList<>();
 
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JsonIgnore
     private MailboxEntity mailbox = new MailboxEntity();
-/*
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }*/
 
     public String getUsername() {
         return username;
@@ -174,5 +172,21 @@ public class UserEntity {
 
     public void setMailbox(MailboxEntity mailbox) {
         this.mailbox = mailbox;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public PhotoEntity getProfilePhoto() {
+        return profilePhoto;
+    }
+
+    public void setProfilePhoto(PhotoEntity profilePhoto) {
+        this.profilePhoto = profilePhoto;
     }
 }

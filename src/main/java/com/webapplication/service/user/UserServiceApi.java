@@ -12,4 +12,6 @@ public interface UserServiceApi {
 
     public UserProfileDto getProfile(UserUtilsDto userUtilsDto);
 
+    public UserProfileDto updateProfile(UserUpdateProfileDto userUpdateProfileDto);
+
 }

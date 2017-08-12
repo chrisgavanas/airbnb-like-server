@@ -23,7 +23,6 @@ public class CommentEntity {
 
     @ManyToOne
     @JoinColumn(name = "RESIDENCE_ID")
-    @JsonBackReference
     private ResidenceEntity residenceEntity;
 
     public Integer getCommentId() {

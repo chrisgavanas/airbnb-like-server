@@ -62,9 +62,11 @@ public class ResidenceEntity {
     private List<UserEntity> users;
 
     @OneToMany(mappedBy = "residenceEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<CommentEntity> comments = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.residence")
+    @OneToMany(mappedBy = "residenceEntity")
+    @JsonIgnore
     private List<ReservationEntity> reservationInfo = new ArrayList<>();
 
     public Integer getResidenceId() {

@@ -155,9 +155,8 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
 
     @Override
     public void reserveResidence(ReservationDto reservationDto) throws RestException{
-        ReservationEntityPK rspk = new ReservationEntityPK();
-        ReservationEntity re = new ReservationEntity();
 
+        ReservationEntity re = new ReservationEntity();
         ResidenceEntity r = residenceRepository.findOne(reservationDto.getResidenceId());
         UserEntity u = userRepository.findUserEntityByUsername(reservationDto.getUsername());
 
@@ -166,13 +165,11 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
         if(r == null)
             throw new ResidenceException(ResidenceError.RESIDENCE_ID_NOT_EXISTS);
 
-        rspk.setUser(u);
-        rspk.setResidence(r);
-
-        re.setPk(rspk);
+        re.setResidenceEntity(r);
         re.setArrivalDate(reservationDto.getArrivalDate());
         re.setDepartureDate(reservationDto.getDepartureDate());
         u.getReservedResidences().add(re);
+        r.getReservationInfo().add(re);
     }
 
 }

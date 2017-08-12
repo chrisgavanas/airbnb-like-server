@@ -1,5 +1,7 @@
 package com.webapplication.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity(name = "Photos")
@@ -13,8 +15,13 @@ public class PhotoEntity {
     @Column(name = "PATH")
     private String path;
 
+    @OneToOne
+    @JsonIgnore
+    private UserEntity user;
+
     @ManyToOne
     @JoinColumn(name = "Residences_RESIDENCE_ID")
+    @JsonIgnore
     private ResidenceEntity residenceEntity;
 
     public Integer getPhotoId() {
@@ -39,5 +46,13 @@ public class PhotoEntity {
 
     public void setResidenceEntity(ResidenceEntity residenceEntity) {
         this.residenceEntity = residenceEntity;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
     }
 }
