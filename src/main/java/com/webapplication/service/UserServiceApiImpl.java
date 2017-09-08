@@ -1,4 +1,4 @@
-package com.webapplication.service.user;
+package com.webapplication.service;
 
 import com.webapplication.authentication.Authenticator;
 import com.webapplication.dao.UserRepository;
@@ -90,6 +90,7 @@ public class UserServiceApiImpl implements UserServiceApi {
         }
         SessionInfo sessionInfo = new SessionInfo(user.getUsername(), LocalDateTime.now(clock).plusMinutes(Authenticator.SESSION_TIME_OUT_MINUTES));
         UUID authToken = authenticator.createSession(sessionInfo);
+        System.out.println(user.getUsername());
         return userMapper.toUserLogInResponseDto(user, authToken);
     }
 

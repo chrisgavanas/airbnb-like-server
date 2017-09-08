@@ -1,4 +1,4 @@
-package com.webapplication.service.user;
+package com.webapplication.service;
 
 
 import com.webapplication.dto.user.*;

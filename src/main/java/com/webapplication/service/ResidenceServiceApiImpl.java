@@ -1,4 +1,4 @@
-package com.webapplication.service.residence;
+package com.webapplication.service;
 
 import com.webapplication.dao.ResidenceRepository;
 import com.webapplication.dao.UserRepository;
@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.*;
 
 @Transactional
@@ -29,14 +30,14 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
     private UserRepository userRepository;
 
     @Override
-    public AddResidenceResponseDto addResidence(AddResidenceRequestDto addResidenceRequestDto) throws RestException {
+    public ResidenceEntity addResidence(AddResidenceRequestDto addResidenceRequestDto) throws RestException {
         ResidenceEntity residenceEntity = residenceMapper.toResidenceEntity(addResidenceRequestDto);
         residenceEntity = residenceRepository.save(residenceEntity);
-        return residenceMapper.toAddResidenceResponseDto(residenceEntity);
+        return residenceEntity;
     }
 
     @Override
-    public List<ResidenceEntity> searchResidence(SearchResidenceDto searchResidenceDto) throws RestException {
+    public List<ResidenceEntity> searchResidence(SearchResidenceDto searchResidenceDto) throws RestException, IOException {
         String location = searchResidenceDto.getLocation();
         Integer capacity = searchResidenceDto.getCapacity();
         String username = searchResidenceDto.getUsername();
@@ -57,8 +58,7 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
         for(ResidenceEntity re : rs)
             if (isAvailable(re,arrivalDate,departureDate))
                 resultSet.add(re);
-
-        return resultSet;
+        return rs;
     }
 
     private boolean isAvailable(ResidenceEntity re, Date arrivalDate, Date departureDate) {

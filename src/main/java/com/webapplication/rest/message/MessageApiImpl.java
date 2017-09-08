@@ -4,7 +4,7 @@ import com.webapplication.dto.message.NewMessageDto;
 import com.webapplication.dto.user.UserUtilsDto;
 import com.webapplication.entity.MessageEntity;
 import com.webapplication.exception.RestException;
-import com.webapplication.service.message.MessageServiceApi;
+import com.webapplication.service.MessageServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -62,7 +62,6 @@ public class ResidenceEntity {
     private List<UserEntity> users;
 
     @OneToMany(mappedBy = "residenceEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JsonIgnore
     private List<CommentEntity> comments = new ArrayList<>();
 
     @OneToMany(mappedBy = "residenceEntity")

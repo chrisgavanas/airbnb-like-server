@@ -9,16 +9,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
 public interface ResidenceApi {
 
     @RequestMapping(path = "/residence", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    AddResidenceResponseDto addResidence(AddResidenceRequestDto addResidenceRequestDto) throws RestException;
+    ResidenceEntity addResidence(AddResidenceRequestDto addResidenceRequestDto) throws RestException;
 
     @RequestMapping(path = "/searchResidence" , method = RequestMethod.POST ,consumes = "application/json", produces = "application/json")
-    List<ResidenceEntity> searchResidence(SearchResidenceDto searchResidenceDto) throws  RestException;
+    List<ResidenceEntity> searchResidence(SearchResidenceDto searchResidenceDto) throws RestException, IOException;
 
     @RequestMapping(path = "/searchResidenceById" , method = RequestMethod.POST ,consumes = "application/json", produces = "application/json")
     ResidenceEntity searchResidenceById(SearchResidenceByIdDto searchResidenceByIdDto) throws  RestException;

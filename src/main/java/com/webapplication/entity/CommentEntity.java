@@ -1,6 +1,7 @@
 package com.webapplication.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
@@ -23,6 +24,7 @@ public class CommentEntity {
 
     @ManyToOne
     @JoinColumn(name = "RESIDENCE_ID")
+    @JsonIgnore
     private ResidenceEntity residenceEntity;
 
     public Integer getCommentId() {
