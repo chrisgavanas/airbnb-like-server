@@ -2,6 +2,7 @@ package com.webapplication.rest.user;
 
 
 import com.webapplication.dto.user.*;
+import com.webapplication.entity.UserEntity;
 import com.webapplication.exception.AuthenticationException;
 import com.webapplication.exception.ConfigurationException;
 import com.webapplication.exception.RestException;
@@ -23,22 +24,22 @@ public class UserApiImpl implements UserApi {
     private UserServiceApi userServiceApi;
 
     @Override
-    public UserRegisterResponseDto register(@RequestBody UserRegisterRequestDto userRegisterRequestDto) throws RestException {
+    public UserEntity register(@RequestBody UserRegisterRequestDto userRegisterRequestDto) throws RestException {
         return userServiceApi.register(userRegisterRequestDto);
     }
 
     @Override
-    public UserLogInResponseDto login(@RequestBody UserLogInRequestDto userLogInRequestDto) throws RestException {
+    public UserEntity login(@RequestBody UserLogInRequestDto userLogInRequestDto) throws RestException {
         return userServiceApi.login(userLogInRequestDto);
     }
 
     @Override
-    public UserProfileDto getProfile(@RequestBody  UserUtilsDto userUtilsDto) throws RestException {
+    public UserEntity getProfile(@RequestBody  UserUtilsDto userUtilsDto) throws RestException {
         return userServiceApi.getProfile(userUtilsDto);
     }
 
     @Override
-    public UserProfileDto updateProfile(@RequestBody  UserUpdateProfileDto userUpdateProfileDto) throws RestException {
+    public UserEntity updateProfile(@RequestBody  UserUpdateProfileDto userUpdateProfileDto) throws RestException {
         return userServiceApi.updateProfile(userUpdateProfileDto);
     }
 

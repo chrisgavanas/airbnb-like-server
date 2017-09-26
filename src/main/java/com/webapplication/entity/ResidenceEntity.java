@@ -53,9 +53,15 @@ public class ResidenceEntity {
     @Column(name = "LOCATION")
     private String location;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "residenceEntity", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<PhotoEntity> photos = new ArrayList<>();
+    @Column(name = "TITLE")
+    private String title;
+
+    @Column(name = "BEDS")
+    private Integer beds;
+
+    @ElementCollection
+    @Column(name = "Photo paths")
+    private List<String> photoPaths = new ArrayList<>();
 
     @JsonIgnore
     @ManyToMany(mappedBy = "residences")
@@ -180,12 +186,12 @@ public class ResidenceEntity {
         this.location = location;
     }
 
-    public List<PhotoEntity> getPhotos() {
-        return photos;
+    public List<String> getPhotoPaths() {
+        return photoPaths;
     }
 
-    public void setPhotos(List<PhotoEntity> photos) {
-        this.photos = photos;
+    public void setPhotoPaths(List<String> photoPaths) {
+        this.photoPaths = photoPaths;
     }
 
     public List<UserEntity> getUsers() {
@@ -210,5 +216,21 @@ public class ResidenceEntity {
 
     public void setReservationInfo(List<ReservationEntity> reservationInfo) {
         this.reservationInfo = reservationInfo;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getBeds() {
+        return beds;
+    }
+
+    public void setBeds(Integer beds) {
+        this.beds = beds;
     }
 }

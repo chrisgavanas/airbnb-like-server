@@ -2,16 +2,17 @@ package com.webapplication.service;
 
 
 import com.webapplication.dto.user.*;
+import com.webapplication.entity.UserEntity;
 import com.webapplication.exception.RestException;
 
 public interface UserServiceApi {
 
-    UserRegisterResponseDto register(UserRegisterRequestDto userRegisterRequestDto) throws RestException;
+    UserEntity register(UserRegisterRequestDto userRegisterRequestDto) throws RestException;
 
-    UserLogInResponseDto login(UserLogInRequestDto userLogInRequestDto) throws RestException;
+    UserEntity login(UserLogInRequestDto userLogInRequestDto) throws RestException;
 
-    public UserProfileDto getProfile(UserUtilsDto userUtilsDto);
+    UserEntity getProfile(UserUtilsDto userUtilsDto);
 
-    public UserProfileDto updateProfile(UserUpdateProfileDto userUpdateProfileDto);
+    UserEntity updateProfile(UserUpdateProfileDto userUpdateProfileDto);
 
 }

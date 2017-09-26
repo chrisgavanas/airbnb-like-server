@@ -33,6 +33,8 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
     public ResidenceEntity addResidence(AddResidenceRequestDto addResidenceRequestDto) throws RestException {
         ResidenceEntity residenceEntity = residenceMapper.toResidenceEntity(addResidenceRequestDto);
         residenceEntity = residenceRepository.save(residenceEntity);
+        System.out.println(residenceEntity.getResidenceId());
+        System.out.println(residenceEntity.getType());
         return residenceEntity;
     }
 

@@ -55,7 +55,7 @@ public class UserServiceApiImpl implements UserServiceApi {
     private Integer iterations;
 
     @Override
-    public UserRegisterResponseDto register(UserRegisterRequestDto userRegisterRequestDto) throws RestException {
+    public UserEntity register(UserRegisterRequestDto userRegisterRequestDto) throws RestException {
         UserEntity userEntity = userRepository.findUserEntityByUsername(userRegisterRequestDto.getUsername());
         if (userEntity != null) {
             throw new UserAlreadyExistsException(UserError.USERNAME_ALREADY_EXISTS);
@@ -76,12 +76,12 @@ public class UserServiceApiImpl implements UserServiceApi {
         } catch (Exception e) {
             throw new ConfigurationException(UserError.CONFIGURATION_ERROR);
         }
-
-        return userMapper.toUserRegisterResponseDto(userEntity);
+        return userEntity;
+        //return userMapper.toUserRegisterResponseDto(userEntity);
     }
 
     @Override
-    public UserLogInResponseDto login(UserLogInRequestDto userLogInRequestDto) throws RestException {
+    public UserEntity login(UserLogInRequestDto userLogInRequestDto) throws RestException {
         UserEntity user = userRepository.findUserEntityByUsername(userLogInRequestDto.getUsername());
         Optional.ofNullable(user).orElseThrow(() -> new AuthenticationException(UserError.INVALID_CREDENTIALS));
         Boolean validated = validatePassword(userLogInRequestDto.getPassword(), user.getPassword(), user.getSalt());
@@ -91,20 +91,23 @@ public class UserServiceApiImpl implements UserServiceApi {
         SessionInfo sessionInfo = new SessionInfo(user.getUsername(), LocalDateTime.now(clock).plusMinutes(Authenticator.SESSION_TIME_OUT_MINUTES));
         UUID authToken = authenticator.createSession(sessionInfo);
         System.out.println(user.getUsername());
-        return userMapper.toUserLogInResponseDto(user, authToken);
+        return user;
+        //return userMapper.toUserLogInResponseDto(user, authToken);
     }
 
     @Override
-    public UserProfileDto getProfile(UserUtilsDto userUtilsDto) {
+    public UserEntity getProfile(UserUtilsDto userUtilsDto) {
         UserEntity user = userRepository.findUserEntityByUsername(userUtilsDto.getUsername());
-        return userMapper.toUserProfileDto(user);
+        return user;
+        //return userMapper.toUserProfileDto(user);
     }
 
     @Override
-    public UserProfileDto updateProfile(UserUpdateProfileDto userUpdateProfileDto) {
+    public UserEntity updateProfile(UserUpdateProfileDto userUpdateProfileDto) {
         UserEntity updatedUser = userMapper.toUpdatedUserEntity(userUpdateProfileDto);
         userRepository.save(updatedUser);
-        return userMapper.toUserProfileDto(updatedUser);
+        return updatedUser;
+        //return userMapper.toUserProfileDto(updatedUser);
     }
 
     private byte[] createSaltForUser() throws NoSuchAlgorithmException {

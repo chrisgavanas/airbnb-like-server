@@ -37,6 +37,26 @@ public class AddResidenceRequestDto {
 
     private List<String> photoPaths;
 
+    private String title;
+
+    private Integer beds;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Integer getBeds() {
+        return beds;
+    }
+
+    public void setBeds(Integer beds) {
+        this.beds = beds;
+    }
+
     public String getAddress() {
         return address;
     }
