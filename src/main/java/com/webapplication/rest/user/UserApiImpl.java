@@ -2,6 +2,7 @@ package com.webapplication.rest.user;
 
 
 import com.webapplication.dto.user.*;
+import com.webapplication.entity.ResidenceEntity;
 import com.webapplication.exception.AuthenticationException;
 import com.webapplication.exception.ConfigurationException;
 import com.webapplication.exception.RestException;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class UserApiImpl implements UserApi {
@@ -36,6 +38,11 @@ public class UserApiImpl implements UserApi {
     @Override
     public UserProfileDto getProfile(@RequestBody  UserUtilsDto userUtilsDto) throws RestException {
         return userServiceApi.getProfile(userUtilsDto);
+    }
+
+    @Override
+    public List<ResidenceEntity> getUserResidences(UserUtilsDto userUtilsDto) throws RestException {
+        return userServiceApi.getResidences(userUtilsDto);
     }
 
     @ExceptionHandler({UserAlreadyExistsException.class, ConfigurationException.class})
