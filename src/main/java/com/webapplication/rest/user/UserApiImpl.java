@@ -2,7 +2,11 @@ package com.webapplication.rest.user;
 
 
 import com.webapplication.dto.user.*;
+<<<<<<< HEAD
+import com.webapplication.entity.ResidenceEntity;
+=======
 import com.webapplication.entity.UserEntity;
+>>>>>>> 399052ab6f5c54ce43f4ea0e085a17dc737fff6c
 import com.webapplication.exception.AuthenticationException;
 import com.webapplication.exception.ConfigurationException;
 import com.webapplication.exception.RestException;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class UserApiImpl implements UserApi {
@@ -39,8 +44,13 @@ public class UserApiImpl implements UserApi {
     }
 
     @Override
+<<<<<<< HEAD
+    public List<ResidenceEntity> getUserResidences(UserUtilsDto userUtilsDto) throws RestException {
+        return userServiceApi.getResidences(userUtilsDto);
+=======
     public UserEntity updateProfile(@RequestBody  UserUpdateProfileDto userUpdateProfileDto) throws RestException {
         return userServiceApi.updateProfile(userUpdateProfileDto);
+>>>>>>> 399052ab6f5c54ce43f4ea0e085a17dc737fff6c
     }
 
     @ExceptionHandler({UserAlreadyExistsException.class, ConfigurationException.class})

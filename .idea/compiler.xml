@@ -7,7 +7,6 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="airbnb-like" />
-        <module name="airbnblike" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.8">
