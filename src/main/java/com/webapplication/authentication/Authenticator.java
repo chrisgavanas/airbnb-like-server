@@ -36,7 +36,7 @@ public class Authenticator {
 
     @Scheduled(fixedDelay = SESSION_TIME_OUT)
     private void cleanUpSessions() {
-        sessions.entrySet().removeIf(session -> session.getValue().getDate().isBefore(LocalDateTime.now(clock)));
+       // sessions.entrySet().removeIf(session -> session.getValue().getDate().isBefore(LocalDateTime.now(clock)));
     }
 
 }

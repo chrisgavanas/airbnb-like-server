@@ -12,6 +12,8 @@ public class UserLogInResponseDto {
 
     private List<RoleDto> roleDtos;
 
+    private String photo;
+
     public String getUsername() {
         return username;
     }
@@ -34,5 +36,13 @@ public class UserLogInResponseDto {
 
     public void setRoleDtos(List<RoleDto> roleDtos) {
         this.roleDtos = roleDtos;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

@@ -1,10 +1,13 @@
 package com.webapplication.dto.user;
 
-import com.webapplication.entity.CommentEntity;
-
 import java.util.List;
 
-public class UserProfileDto {
+/**
+ * Created by panagiotis on 11/8/2017.
+ */
+public class UserUpdateProfileDto {
+
+    private String username;
 
     private String name;
 
@@ -18,9 +21,15 @@ public class UserProfileDto {
 
     private String photo;
 
-    private List<CommentEntity> comments;
-
     private List<RoleDto> roleDtos;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public String getName() {
         return name;
@@ -52,14 +61,6 @@ public class UserProfileDto {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public List<CommentEntity> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<CommentEntity> comments) {
-        this.comments = comments;
     }
 
     public String getCity() {

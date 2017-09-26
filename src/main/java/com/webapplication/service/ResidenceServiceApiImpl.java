@@ -1,4 +1,4 @@
-package com.webapplication.service.residence;
+package com.webapplication.service;
 
 import com.webapplication.dao.ResidenceRepository;
 import com.webapplication.dao.UserRepository;
@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.*;
 
 @Transactional
@@ -29,14 +30,16 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
     private UserRepository userRepository;
 
     @Override
-    public AddResidenceResponseDto addResidence(AddResidenceRequestDto addResidenceRequestDto) throws RestException {
+    public ResidenceEntity addResidence(AddResidenceRequestDto addResidenceRequestDto) throws RestException {
         ResidenceEntity residenceEntity = residenceMapper.toResidenceEntity(addResidenceRequestDto);
         residenceEntity = residenceRepository.save(residenceEntity);
-        return residenceMapper.toAddResidenceResponseDto(residenceEntity);
+        System.out.println(residenceEntity.getResidenceId());
+        System.out.println(residenceEntity.getType());
+        return residenceEntity;
     }
 
     @Override
-    public List<ResidenceEntity> searchResidence(SearchResidenceDto searchResidenceDto) throws RestException {
+    public List<ResidenceEntity> searchResidence(SearchResidenceDto searchResidenceDto) throws RestException, IOException {
         String location = searchResidenceDto.getLocation();
         Integer capacity = searchResidenceDto.getCapacity();
         String username = searchResidenceDto.getUsername();
@@ -57,8 +60,7 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
         for(ResidenceEntity re : rs)
             if (isAvailable(re,arrivalDate,departureDate))
                 resultSet.add(re);
-
-        return resultSet;
+        return rs;
     }
 
     private boolean isAvailable(ResidenceEntity re, Date arrivalDate, Date departureDate) {
@@ -155,9 +157,8 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
 
     @Override
     public void reserveResidence(ReservationDto reservationDto) throws RestException{
-        ReservationEntityPK rspk = new ReservationEntityPK();
-        ReservationEntity re = new ReservationEntity();
 
+        ReservationEntity re = new ReservationEntity();
         ResidenceEntity r = residenceRepository.findOne(reservationDto.getResidenceId());
         UserEntity u = userRepository.findUserEntityByUsername(reservationDto.getUsername());
 
@@ -166,13 +167,11 @@ public class ResidenceServiceApiImpl implements ResidenceServiceApi {
         if(r == null)
             throw new ResidenceException(ResidenceError.RESIDENCE_ID_NOT_EXISTS);
 
-        rspk.setUser(u);
-        rspk.setResidence(r);
-
-        re.setPk(rspk);
+        re.setResidenceEntity(r);
         re.setArrivalDate(reservationDto.getArrivalDate());
         re.setDepartureDate(reservationDto.getDepartureDate());
         u.getReservedResidences().add(re);
+        r.getReservationInfo().add(re);
     }
 
 }

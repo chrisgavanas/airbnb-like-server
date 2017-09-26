@@ -2,18 +2,21 @@ package com.webapplication.rest.user;
 
 
 import com.webapplication.dto.user.*;
+<<<<<<< HEAD
 import com.webapplication.entity.ResidenceEntity;
+=======
+import com.webapplication.entity.UserEntity;
+>>>>>>> 399052ab6f5c54ce43f4ea0e085a17dc737fff6c
 import com.webapplication.exception.AuthenticationException;
 import com.webapplication.exception.ConfigurationException;
 import com.webapplication.exception.RestException;
 import com.webapplication.exception.UserAlreadyExistsException;
-import com.webapplication.service.user.UserServiceApi;
+import com.webapplication.service.UserServiceApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -26,23 +29,28 @@ public class UserApiImpl implements UserApi {
     private UserServiceApi userServiceApi;
 
     @Override
-    public UserRegisterResponseDto register(@RequestBody UserRegisterRequestDto userRegisterRequestDto) throws RestException {
+    public UserEntity register(@RequestBody UserRegisterRequestDto userRegisterRequestDto) throws RestException {
         return userServiceApi.register(userRegisterRequestDto);
     }
 
     @Override
-    public UserLogInResponseDto login(@RequestBody UserLogInRequestDto userLogInRequestDto) throws RestException {
+    public UserEntity login(@RequestBody UserLogInRequestDto userLogInRequestDto) throws RestException {
         return userServiceApi.login(userLogInRequestDto);
     }
 
     @Override
-    public UserProfileDto getProfile(@RequestBody  UserUtilsDto userUtilsDto) throws RestException {
+    public UserEntity getProfile(@RequestBody  UserUtilsDto userUtilsDto) throws RestException {
         return userServiceApi.getProfile(userUtilsDto);
     }
 
     @Override
+<<<<<<< HEAD
     public List<ResidenceEntity> getUserResidences(UserUtilsDto userUtilsDto) throws RestException {
         return userServiceApi.getResidences(userUtilsDto);
+=======
+    public UserEntity updateProfile(@RequestBody  UserUpdateProfileDto userUpdateProfileDto) throws RestException {
+        return userServiceApi.updateProfile(userUpdateProfileDto);
+>>>>>>> 399052ab6f5c54ce43f4ea0e085a17dc737fff6c
     }
 
     @ExceptionHandler({UserAlreadyExistsException.class, ConfigurationException.class})

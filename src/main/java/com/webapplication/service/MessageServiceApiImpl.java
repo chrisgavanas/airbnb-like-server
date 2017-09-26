@@ -1,4 +1,4 @@
-package com.webapplication.service.message;
+package com.webapplication.service;
 
 import com.webapplication.dao.UserRepository;
 import com.webapplication.dto.message.NewMessageDto;

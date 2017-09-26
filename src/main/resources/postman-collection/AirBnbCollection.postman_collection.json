@@ -17,36 +17,35 @@
 		"a2bdf77e-a0ac-c937-5910-21ae9c38650e",
 		"613e4026-bad8-0475-6aff-4dff23408a8a",
 		"b17e0c7c-35cd-6df6-968c-16a50377c2c9",
-		"e8aa80cd-9419-c93a-1e49-137b0da74ddf"
+		"e8aa80cd-9419-c93a-1e49-137b0da74ddf",
+		"4ecf0ac2-788a-bc8f-5179-799e7850fbeb"
 	],
 	"folders": [],
 	"folders_order": [],
-	"timestamp": 0,
+	"timestamp": 1499277375561,
 	"owner": "2413146",
 	"public": false,
 	"requests": [
 		{
-			"folder": null,
 			"id": "14110076-f155-c44b-5ea5-5891807b6e4f",
-			"name": "http://localhost:8080/getAllResidences",
-			"dataMode": "params",
-			"data": null,
-			"rawModeData": null,
-			"descriptionFormat": "html",
-			"description": "",
 			"headers": "",
-			"method": "GET",
-			"pathVariables": {},
+			"headerData": [],
 			"url": "http://localhost:8080/getAllResidences",
+			"queryParams": [],
 			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"queryParams": [],
-			"headerData": [],
-			"pathVariableData": [],
-			"responses": [],
-			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0"
+			"helperAttributes": {},
+			"time": 1501428174712,
+			"name": "http://localhost:8080/getAllResidences",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
+			"responses": []
 		},
 		{
 			"id": "2fde6645-3224-bb23-e084-70747f6778dc",
@@ -67,34 +66,20 @@
 			"method": "POST",
 			"data": [],
 			"dataMode": "raw",
+			"version": 2,
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1502285331801,
+			"time": 1502554373946,
 			"name": "http://localhost:8080/register",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n  \"username\" : \"panagiotis\",\n  \"password\" : \"123123\",\n  \"name\" : \"Panagiotis\", \n  \"surname\" : \"Kanakakis\",\n  \"email\" : \"pkanakakis@di.uoa.gr\",\n  \"phoneNumber\" : \"6973510999\",\n  \"roleDtos\" : [\n    \"HOST\",\n    \"TENANT\"\n  ]\n}"
+			"rawModeData": "{\n  \"username\" : \"panagiotis\",\n  \"password\" : \"123123\",\n  \"name\" : \"Panagiotis\", \n  \"surname\" : \"Kanakakis\",\n  \"email\" : \"new email\",\n  \"phoneNumber\" : \"6973510999\",\n  \"city\" : \"Nikaia\",\n  \"roleDtos\" : [\n    \"HOST\"\n  ],\n  \"photo\": \"\"\n  \n}"
 		},
 		{
-			"folder": null,
 			"id": "358943e6-f4ee-dfaf-282c-b94026429fb0",
-			"name": "http://localhost:8080/updateResidence",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "{\n  \"residenceId\" : 2,\n  \"address\" : \"Gr. Lampraki\",\n  \"geoX\" : 20.1,\n  \"geoY\" : \"10\",\n  \"capacity\" : 4,\n  \"prize\" : 50,\n  \"type\" : \"Saloon\",\n  \"rules\" : \"Attention please - Updated rules\",\n  \"description\" : \"Diamperes\",\n  \"bedrooms\" : 3,\n  \"bathrooms\" : 1,\n  \"size\" : 90.12,\n  \"livingRoom\" : true,\n  \"userId\" : 3,\n  \"location\" : \"Athens\"\n}",
-			"descriptionFormat": "html",
-			"description": "",
 			"headers": "Content-Type: application/json\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "http://localhost:8080/updateResidence",
-			"preRequestScript": null,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"queryParams": [],
 			"headerData": [
 				{
 					"key": "Content-Type",
@@ -103,28 +88,27 @@
 					"enabled": true
 				}
 			],
+			"url": "http://localhost:8080/updateResidence",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
 			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502457019890,
+			"name": "http://localhost:8080/updateResidence",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0"
+			"rawModeData": "{\n\t\"residenceId\" : 1,\n\t\"address\" : \"Gr. Lampraki\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : 10,\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please - Updated rules\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"location\" : \"Athens\"\n}"
 		},
 		{
-			"folder": null,
 			"id": "391d20e7-888d-2b12-91d8-6eaaa809c3aa",
-			"name": "http://localhost:8080/deleteResidence",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": " {\n        \"residenceId\": 4,\n        \"address\": \"Andromahis\",\n        \"geoX\": 20.1,\n        \"geoY\": 10,\n        \"datesAvailable\": \"1;2;\",\n        \"capacity\": 4,\n        \"prize\": 50,\n        \"type\": \"Saloon\",\n        \"rules\": \"Attention please\",\n        \"description\": \"Diamperes\",\n        \"bathrooms\": 1,\n        \"size\": 90.12,\n        \"bedrooms\": 3,\n        \"livingRoom\": true,\n        \"location\": null,\n        \"comments\": [\n            {\n                \"commentId\": 4,\n                \"comment\": \"Test comment\",\n                \"grade\": 4\n            }\n        ]\n    }",
-			"descriptionFormat": "html",
-			"description": "",
 			"headers": "Content-Type: application/json\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "http://localhost:8080/deleteResidence",
-			"preRequestScript": "",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"queryParams": [],
 			"headerData": [
 				{
 					"key": "Content-Type",
@@ -133,9 +117,23 @@
 					"enabled": true
 				}
 			],
+			"url": "http://localhost:8080/deleteResidence",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
 			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1501435293481,
+			"name": "http://localhost:8080/deleteResidence",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0"
+			"rawModeData": " {\n        \"residenceId\": 4,\n        \"address\": \"Andromahis\",\n        \"geoX\": 20.1,\n        \"geoY\": 10,\n        \"datesAvailable\": \"1;2;\",\n        \"capacity\": 4,\n        \"prize\": 50,\n        \"type\": \"Saloon\",\n        \"rules\": \"Attention please\",\n        \"description\": \"Diamperes\",\n        \"bathrooms\": 1,\n        \"size\": 90.12,\n        \"bedrooms\": 3,\n        \"livingRoom\": true,\n        \"location\": null,\n        \"comments\": [\n            {\n                \"commentId\": 4,\n                \"comment\": \"Test comment\",\n                \"grade\": 4\n            }\n        ]\n    }"
 		},
 		{
 			"id": "434863a9-da9d-0d84-56f0-092d8c3f65eb",
@@ -159,12 +157,12 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1502285055079,
+			"time": 1502553922496,
 			"name": "http://localhost:8080/reserveResidence",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n  \"residenceId\" : 1,\n  \"username\" : \"chris\",\n  \"arrivalDate\" : \"2017-08-01\",\n  \"departureDate\" : \"2017-08-08\"\n}"
+			"rawModeData": "{\n  \"residenceId\" : 1,\n  \"username\" : \"chris\",\n  \"arrivalDate\" : \"2017-08-22\",\n  \"departureDate\" : \"2017-08-28\"\n}"
 		},
 		{
 			"id": "4ec40088-0ea5-be78-4628-0110b1eb755b",
@@ -173,8 +171,8 @@
 				{
 					"key": "Content-Type",
 					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"enabled": true,
+					"description": ""
 				}
 			],
 			"url": "http://localhost:8080/getResidencesBasedOnUserSearchedLocations",
@@ -185,15 +183,47 @@
 			"method": "POST",
 			"data": [],
 			"dataMode": "raw",
+			"version": 2,
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1502284488979,
+			"helperAttributes": "{}",
+			"time": 1502029180595,
 			"name": "http://localhost:8080/getResidencesBasedOnUserSearchedLocations",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n\t\"username\":\"chris\"\n}"
+			"folder": null,
+			"descriptionFormat": "html",
+			"rawModeData": "{\n  \"username\":\"chris\"\n}"
+		},
+		{
+			"id": "4ecf0ac2-788a-bc8f-5179-799e7850fbeb",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8080/updateProfile",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502554465706,
+			"name": "http://localhost:8080/updateProfile",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
+			"responses": [],
+			"rawModeData": "{\n\t\"username\": \"panagiotis\",\n\t\"name\": \"name\",\n\t\"surname\": \"surname\",\n\t\"email\" : \"email\",\n\t\"photo\" : \"path/to/photo\",\n\t\"city\" : \"Athens\",\n\t\"roleDtos\" : [\n    \"HOST\",\n    \"TENANT\"\n\t]\n}"
 		},
 		{
 			"id": "51c26563-91dd-b41e-4aa8-00d2c2c49f5a",
@@ -214,15 +244,16 @@
 			"method": "POST",
 			"data": [],
 			"dataMode": "raw",
+			"version": 2,
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1502284452955,
+			"time": 1502553979486,
 			"name": "http://localhost:8080/searchResidence",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"rawModeData": "{\n  \"username\" : \"chris\",\n  \"capacity\" : 5,\n  \"location\" : \"Athens\",\n  \"arrivalDate\" : \"2017-08-09\",\n  \"departureDate\" : \"2017-08-18\"\n}"
+			"rawModeData": "{\n  \"username\" : \"chris\",\n  \"capacity\" : 4,\n  \"location\" : \"Athens\",\n  \"arrivalDate\" : \"2017-08-17\",\n  \"departureDate\" : \"2017-08-21\"\n}"
 		},
 		{
 			"id": "613e4026-bad8-0475-6aff-4dff23408a8a",
@@ -231,8 +262,8 @@
 				{
 					"key": "Content-Type",
 					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"enabled": true,
+					"description": ""
 				}
 			],
 			"url": "http://localhost:8080/getInbox",
@@ -245,32 +276,19 @@
 			"dataMode": "raw",
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1502285346089,
+			"helperAttributes": "{}",
+			"time": 1502059478352,
 			"name": "http://localhost:8080/getInbox",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
+			"folder": null,
+			"descriptionFormat": "html",
 			"rawModeData": "{\n  \"username\" : \"chris\"\n}"
 		},
 		{
-			"folder": null,
 			"id": "98903950-4b34-58f2-00a6-d032bcb1ce28",
-			"name": "http://localhost:8080/login",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "{\n  \"username\" : \"chris\",\n  \"password\" : \"123123\"\n}",
-			"descriptionFormat": "html",
-			"description": "",
 			"headers": "Content-Type: application/json\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "http://localhost:8080/login",
-			"preRequestScript": null,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"queryParams": [],
 			"headerData": [
 				{
 					"key": "Content-Type",
@@ -279,9 +297,24 @@
 					"enabled": true
 				}
 			],
+			"url": "http://localhost:8080/login",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
 			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502554475661,
+			"name": "http://localhost:8080/login",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0"
+			"rawModeData": "{\n\t\"username\" : \"panagiotis\",\n\t\"password\" : \"123123\"\n}"
 		},
 		{
 			"id": "a2bdf77e-a0ac-c937-5910-21ae9c38650e",
@@ -290,8 +323,8 @@
 				{
 					"key": "Content-Type",
 					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"enabled": true,
+					"description": ""
 				}
 			],
 			"url": "http://localhost:8080/newMessage",
@@ -304,12 +337,14 @@
 			"dataMode": "raw",
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1502285270680,
+			"helperAttributes": "{}",
+			"time": 1502059355860,
 			"name": "http://localhost:8080/newMessage",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
+			"folder": null,
+			"descriptionFormat": "html",
 			"rawModeData": "{\n  \"fromUser\": \"chris\",\n  \"toUser\": \"panagiotis\",\n  \"messageText\": \"test message \"\n}"
 		},
 		{
@@ -319,8 +354,8 @@
 				{
 					"key": "Content-Type",
 					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"enabled": true,
+					"description": ""
 				}
 			],
 			"url": "http://localhost:8080/getOutbox",
@@ -333,12 +368,14 @@
 			"dataMode": "raw",
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1502285356777,
+			"helperAttributes": "{}",
+			"time": 1502059695128,
 			"name": "http://localhost:8080/getOutbox",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
+			"folder": null,
+			"descriptionFormat": "html",
 			"rawModeData": "{\n  \"username\" : \"chris\"\n}"
 		},
 		{
@@ -348,8 +385,8 @@
 				{
 					"key": "Content-Type",
 					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"enabled": true,
+					"description": ""
 				}
 			],
 			"url": "http://localhost:8080/addComment",
@@ -362,12 +399,14 @@
 			"dataMode": "raw",
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1502282520310,
+			"helperAttributes": "{}",
+			"time": 1501435265729,
 			"name": "http://localhost:8080/addComment",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
+			"folder": null,
+			"descriptionFormat": "html",
 			"rawModeData": "{\n  \"residenceId\" : \"1\",\n  \"comment\" : \"Test comment\",\n  \"grade\" : \"4\"\n}"
 		},
 		{
@@ -392,31 +431,15 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1502285795573,
+			"time": 1502554813814,
 			"name": "http://localhost:8080/getProfile",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
-			"responses": [],
-			"rawModeData": "{\n\t\"username\":\"chris\"\n}"
+			"rawModeData": "{\n  \"username\":\"chris\"\n}"
 		},
 		{
-			"folder": null,
 			"id": "f9fa2734-361b-2aec-f0f9-2c0d2e48eea4",
-			"name": "http://localhost:8080/residence",
-			"dataMode": "raw",
-			"data": [],
-			"rawModeData": "{\n  \"address\" : \"Andromahis\",\n  \"geoX\" : 20.1,\n  \"geoY\" : \"10\",\n  \"capacity\" : 4,\n  \"prize\" : 50,\n  \"type\" : \"Saloon\",\n  \"rules\" : \"Attention please\",\n  \"description\" : \"Diamperes\",\n  \"bedrooms\" : 3,\n  \"bathrooms\" : 1,\n  \"size\" : 90.12,\n  \"livingRoom\" : true,\n  \"username\" : \"chris\"\n}",
-			"descriptionFormat": "html",
-			"description": "",
 			"headers": "Content-Type: application/json\n",
-			"method": "POST",
-			"pathVariables": {},
-			"url": "http://localhost:8080/residence",
-			"preRequestScript": null,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"queryParams": [],
 			"headerData": [
 				{
 					"key": "Content-Type",
@@ -425,9 +448,24 @@
 					"enabled": true
 				}
 			],
+			"url": "http://localhost:8080/residence",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
 			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1502021479884,
+			"name": "http://localhost:8080/residence",
+			"description": "",
+			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
-			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0"
+			"rawModeData": "{\n\t\"address\" : \"Andromahis\",\n\t\"geoX\" : 20.1,\n\t\"geoY\" : \"10\",\n\t\"capacity\" : 4,\n\t\"prize\" : 50,\n\t\"type\" : \"Saloon\",\n\t\"rules\" : \"Attention please\",\n\t\"description\" : \"Diamperes\",\n\t\"bedrooms\" : 3,\n\t\"bathrooms\" : 1,\n\t\"size\" : 90.12,\n\t\"livingRoom\" : true,\n\t\"username\" : \"chris\"\n}"
 		},
 		{
 			"id": "fb30b766-91e0-1d09-02eb-a9a5bfcfc419",
@@ -436,8 +474,8 @@
 				{
 					"key": "Content-Type",
 					"value": "application/json",
-					"description": "",
-					"enabled": true
+					"enabled": true,
+					"description": ""
 				}
 			],
 			"url": "http://localhost:8080/searchResidenceById",
@@ -450,12 +488,14 @@
 			"dataMode": "raw",
 			"tests": null,
 			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1502284461555,
+			"helperAttributes": "{}",
+			"time": 1502029478480,
 			"name": "http://localhost:8080/searchResidenceById",
 			"description": "",
 			"collectionId": "8f4b4dd6-f62f-7612-b970-f124aa8776a0",
 			"responses": [],
+			"folder": null,
+			"descriptionFormat": "html",
 			"rawModeData": "{\n  \"residenceId\" : 1\n}"
 		}
 	]

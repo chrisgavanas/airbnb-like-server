@@ -17,6 +17,8 @@ public class UserRegisterRequestDto {
 
     private String phoneNumber;
 
+    private String photoPath;
+
     private List<RoleDto> roleDtos;
 
     public String getUsername() {
@@ -73,5 +75,13 @@ public class UserRegisterRequestDto {
 
     public void setRoleDtos(List<RoleDto> roleDtos) {
         this.roleDtos = roleDtos;
+    }
+
+    public String getPhotoPath() {
+        return photoPath;
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
     }
 }
